@@ -1,0 +1,25 @@
+project:
+  type: website
+
+resources:
+  - data/centers.json
+  - data/professors.json
+
+website:
+  title: "Yoga Directory"
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+      - text: Map
+        href: map.qmd
+      - text: Centers
+        href: centers/peace-yoga.qmd
+      - text: Suggest
+        href: suggest.qmd  # 👈 This is the new menu item
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true

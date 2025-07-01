@@ -1,0 +1,11 @@
+/*-- scss:defaults --*/
+$primary: #800000;
+$body-bg: #fffdfb;
+$link-color: $primary;
+$navbar-bg: $primary;
+$navbar-fg: white;
+
+/*-- scss:rules --*/
+body {
+  font-family: "Segoe UI", sans-serif;
+}

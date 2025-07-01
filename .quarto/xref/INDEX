@@ -1,0 +1,170 @@
+{
+  "index.qmd": {
+    "index.html": "b7b13f62"
+  },
+  "map.qmd": {
+    "map.html": "3a6eed6c"
+  },
+  "centers/alma-yoga.qmd": {
+    "alma-yoga.html": "37e79278"
+  },
+  "centers/balance-yoga.qmd": {
+    "balance-yoga.html": "282ac84f"
+  },
+  "centers/costa-zen.qmd": {
+    "costa-zen.html": "a3f53cac"
+  },
+  "centers/namaste-center.qmd": {
+    "namaste-center.html": "c503476a"
+  },
+  "centers/ocean-zen.qmd": {
+    "ocean-zen.html": "82ad6f4e"
+  },
+  "centers/peace-yoga.qmd": {
+    "peace-yoga.html": "08111282"
+  },
+  "centers/sevilla-breath.qmd": {
+    "sevilla-breath.html": "c14b3310"
+  },
+  "centers/soul-stretch.qmd": {
+    "soul-stretch.html": "95b5d326"
+  },
+  "centers/urban-flow.qmd": {
+    "urban-flow.html": "68b5c503"
+  },
+  "centers/yoga-norte.qmd": {
+    "yoga-norte.html": "aafb8431"
+  },
+  "professors/ana-torres.qmd": {
+    "ana-torres.html": "e3dbc366"
+  },
+  "professors/carlos-martinez.qmd": {
+    "carlos-martinez.html": "8e99e3df"
+  },
+  "professors/laura-sanchez.qmd": {
+    "laura-sanchez.html": "469ba824"
+  },
+  "professors/lucia-gomez.qmd": {
+    "lucia-gomez.html": "a9be177c"
+  },
+  "professors/maria-lopez.qmd": {
+    "maria-lopez.html": "64fb6184"
+  },
+  "professors/sergio-diaz.qmd": {
+    "sergio-diaz.html": "9eddf942"
+  },
+  "suggest.qmd": {
+    "suggest.html": "108399e3"
+  },
+  "professors/nuria-diaz.qmd": {
+    "nuria-diaz.html": "2d52fd33"
+  },
+  "professors/Nuria Díaz.qmd": {
+    "Nuria Díaz.html": "776e10be"
+  },
+  "center_template.qmd": {
+    "center_template.html": "899415e9"
+  },
+  "old_files/centers/alma-yoga.qmd": {
+    "alma-yoga.html": "27185946"
+  },
+  "old_files/centers/balance-yoga.qmd": {
+    "balance-yoga.html": "75c942e0"
+  },
+  "old_files/centers/costa-zen.qmd": {
+    "costa-zen.html": "4a28b7ad"
+  },
+  "old_files/centers/namaste-center.qmd": {
+    "namaste-center.html": "d8a0a1a6"
+  },
+  "old_files/centers/ocean-zen.qmd": {
+    "ocean-zen.html": "af71d7d4"
+  },
+  "old_files/centers/peace-yoga.qmd": {
+    "peace-yoga.html": "26a18cce"
+  },
+  "old_files/centers/sevilla-breath.qmd": {
+    "sevilla-breath.html": "474c24f9"
+  },
+  "old_files/centers/soul-stretch.qmd": {
+    "soul-stretch.html": "b87cdb72"
+  },
+  "old_files/centers/urban-flow.qmd": {
+    "urban-flow.html": "c1483679"
+  },
+  "old_files/centers/yoga-norte.qmd": {
+    "yoga-norte.html": "7b4b5859"
+  },
+  "old_files/professors/ana-torres.qmd": {
+    "ana-torres.html": "8f6a7674"
+  },
+  "old_files/professors/carlos-martinez.qmd": {
+    "carlos-martinez.html": "e110b2c5"
+  },
+  "old_files/professors/laura-sanchez.qmd": {
+    "laura-sanchez.html": "ce2541af"
+  },
+  "old_files/professors/lucia-gomez.qmd": {
+    "lucia-gomez.html": "bc261877"
+  },
+  "old_files/professors/maria-lopez.qmd": {
+    "maria-lopez.html": "f06d78d9"
+  },
+  "old_files/professors/Nuria Díaz.qmd": {
+    "Nuria Díaz.html": "2f679e22"
+  },
+  "old_files/professors/sergio-diaz.qmd": {
+    "sergio-diaz.html": "27f7650c"
+  },
+  "professors/beatriz-molina.qmd": {
+    "beatriz-molina.html": "930aa102"
+  },
+  "professors/carlos-ruiz.qmd": {
+    "carlos-ruiz.html": "e4cabb5f"
+  },
+  "professors/carmen-romero.qmd": {
+    "carmen-romero.html": "7dc8a56a"
+  },
+  "professors/daniel-gomez.qmd": {
+    "daniel-gomez.html": "4ace698a"
+  },
+  "professors/isabel-cano.qmd": {
+    "isabel-cano.html": "8da75d6e"
+  },
+  "professors/javier-fernandez.qmd": {
+    "javier-fernandez.html": "3edc0c07"
+  },
+  "professors/jorge-herrera.qmd": {
+    "jorge-herrera.html": "30656b47"
+  },
+  "professors/laura-perez.qmd": {
+    "laura-perez.html": "fc736ca4"
+  },
+  "professors/lucia-martin.qmd": {
+    "lucia-martin.html": "67c32d3b"
+  },
+  "professors/miguel-sanchez.qmd": {
+    "miguel-sanchez.html": "c07aa33c"
+  },
+  "professors/pablo-alonso.qmd": {
+    "pablo-alonso.html": "b5b9fa15"
+  },
+  "professors/raquel-moreno.qmd": {
+    "raquel-moreno.html": "be98633e"
+  },
+  "professors/sofia-navarro.qmd": {
+    "sofia-navarro.html": "c662aaa5"
+  },
+  "professors/victor-ortega.qmd": {
+    "victor-ortega.html": "99ee0cff"
+  },
+  "professor_template.qmd": {
+    "professor_template.html": "a7252261"
+  },
+  "generate_professors_and_centers_files/center_template.qmd": {
+    "center_template.html": "a9302f12"
+  },
+  "generate_professors_and_centers_files/professor_template.qmd": {
+    "professor_template.html": "363ca630"
+  }
+}

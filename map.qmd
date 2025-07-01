@@ -1,0 +1,460 @@
+---
+title: "Find a Yoga Center"
+---
+
+## Filter by City, Yoga Style, Professor, and Language
+
+<input type="text" id="citySearch" placeholder="Enter city name..." style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off" />
+<ul id="citySuggestions" style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; display: none; max-height: 150px; overflow-y: auto;"></ul>
+
+<div id="styleFilters" style="margin-bottom: 1em;">
+  <label><input type="checkbox" value="Hatha"> Hatha</label>
+  <label><input type="checkbox" value="Vinyasa"> Vinyasa</label>
+  <label><input type="checkbox" value="Yin"> Yin</label>
+  <label><input type="checkbox" value="Ashtanga"> Ashtanga</label>
+  <label><input type="checkbox" value="Kundalini"> Kundalini</label>
+  <label><input type="checkbox" value="Restorative"> Restorative</label>
+  <label><input type="checkbox" value="Bikram"> Bikram</label>
+</div>
+
+<select id="professorSelect" style="width: 100%; padding: 10px; margin-bottom: 1em;">
+  <option value="">All Professors</option>
+</select>
+
+<div id="languageFilters" style="margin-bottom: 1em;">
+  <label><input type="checkbox" value="Spanish"> Spanish</label>
+  <label><input type="checkbox" value="English"> English</label>
+</div>
+
+<button id="findNearby" style="padding: 10px; width: 100%; margin-bottom: 1em;">📍 Find Centers Near Me (2 km)</button>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<div id="map" style="height: 600px;"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+## Yoga Centers
+
+<ul id="centerList"></ul>
+<p id="noResults" style="display:none; color: red;">No centers found for your search.</p>
+
+<script>
+let centers = [];
+let professors = [];
+let usingNearby = false;
+let userLat = null;
+let userLng = null;
+
+const input = document.getElementById("citySearch");
+const suggestions = document.getElementById("citySuggestions");
+const checkboxes = document.querySelectorAll("#styleFilters input[type=checkbox]");
+const languageBoxes = document.querySelectorAll("#languageFilters input[type=checkbox]");
+const professorSelect = document.getElementById("professorSelect");
+const findNearbyBtn = document.getElementById("findNearby");
+const listEl = document.getElementById("centerList");
+const noResults = document.getElementById("noResults");
+
+const map = L.map('map').setView([40.0, -3.7], 6);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+let markers = [];
+
+function updateDisplay(doZoom = false, updateMarkers = true) {
+  const cityVal = input.value.toLowerCase().trim();
+  const selectedStyles = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+  const selectedLangs = Array.from(languageBoxes).filter(cb => cb.checked).map(cb => cb.value);
+  const selectedProf = professorSelect.value;
+
+  const filtered = centers.filter(c => {
+    const matchCity = c.city.toLowerCase().includes(cityVal);
+    const matchStyle = selectedStyles.length === 0 || c.styles.some(style => selectedStyles.includes(style));
+    const matchLang = selectedLangs.length === 0 || c.languages.some(lang => selectedLangs.includes(lang));
+    const matchProf = !selectedProf || c.professors.includes(selectedProf);
+    const matchNearby = !usingNearby || (
+      userLat !== null && userLng !== null &&
+      getDistance(userLat, userLng, c.lat, c.lng) <= 2
+    );
+    return matchNearby && matchCity && matchStyle && matchLang && matchProf;
+  });
+
+  listEl.innerHTML = "";
+  filtered.forEach(c => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${c.page}">${c.name} (${c.city})</a>`;
+    listEl.appendChild(li);
+  });
+
+  noResults.style.display = filtered.length === 0 ? "block" : "none";
+
+  if (updateMarkers) {
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+    filtered.forEach(c => {
+      const marker = L.marker([c.lat, c.lng]).addTo(map)
+        .bindPopup(`<a href="${c.page}">${c.name}</a><br>${c.city}`);
+      markers.push(marker);
+    });
+  }
+
+  if (doZoom && cityVal) {
+    const exactMatch = centers.filter(c => c.city.toLowerCase() === cityVal);
+    if (exactMatch.length > 0) {
+      const avgLat = exactMatch.reduce((sum, c) => sum + c.lat, 0) / exactMatch.length;
+      const avgLng = exactMatch.reduce((sum, c) => sum + c.lng, 0) / exactMatch.length;
+      map.setView([avgLat, avgLng], 12);
+    }
+  }
+
+  if (doZoom && usingNearby && userLat && userLng) {
+    map.setView([userLat, userLng], 14);
+  }
+}
+
+function getDistance(lat1, lng1, lat2, lng2) {
+  const toRad = deg => deg * Math.PI / 180;
+  const R = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+findNearbyBtn.addEventListener("click", () => {
+  if (!usingNearby) {
+    if (!navigator.geolocation) {
+      alert("Geolocation not supported");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(pos => {
+      userLat = pos.coords.latitude;
+      userLng = pos.coords.longitude;
+      usingNearby = true;
+
+      // Clear city input when nearby search is activated
+      input.value = "";
+      findNearbyBtn.textContent = "✅ Showing Centers Near Me (2 km)";
+      updateDisplay(true, true);
+    }, () => {
+      alert("Unable to get location");
+    });
+  } else {
+    usingNearby = false;
+    userLat = null;
+    userLng = null;
+    findNearbyBtn.textContent = "📍 Find Centers Near Me (2 km)";
+    updateDisplay(true, true);
+  }
+});
+
+
+fetch("data/centers.json")
+  .then(res => res.json())
+  .then(data => {
+    centers = data;
+    return fetch("data/professors.json");
+  })
+  .then(res => res.json())
+  .then(data => {
+    professors = data;
+    professors.forEach(p => {
+      const option = document.createElement("option");
+      option.value = p.id;
+      option.textContent = p.name;
+      professorSelect.appendChild(option);
+    });
+    updateDisplay(true, true);
+  });
+
+input.addEventListener("focus", () => {
+  suggestions.innerHTML = "";
+  const li = document.createElement("li");
+  li.textContent = "📍 Use my location (2 km)";
+  li.style.padding = "5px";
+  li.style.cursor = "pointer";
+  li.style.fontStyle = "italic";
+  li.addEventListener("click", () => {
+    suggestions.style.display = "none";
+    findNearbyBtn.click();
+  });
+  suggestions.appendChild(li);
+  suggestions.style.display = "block";
+});
+
+document.addEventListener("click", (e) => {
+  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+    suggestions.style.display = "none";
+  }
+});
+
+input.addEventListener("input", () => {
+  const val = input.value.toLowerCase().trim();
+  suggestions.innerHTML = "";
+
+  const nearMe = document.createElement("li");
+  nearMe.textContent = "📍 Use my location (2 km)";
+  nearMe.style.padding = "5px";
+  nearMe.style.cursor = "pointer";
+  nearMe.style.fontStyle = "italic";
+  nearMe.addEventListener("click", () => {
+    suggestions.style.display = "none";
+    findNearbyBtn.click();
+  });
+  suggestions.appendChild(nearMe);
+
+  if (val.length === 0) {
+    suggestions.style.display = "block";
+    return;
+  }
+
+  const allCities = [...new Set(centers.map(c => c.city))];
+  const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+  if (matches.length > 0) {
+    matches.forEach(city => {
+      const li = document.createElement("li");
+      li.textContent = city;
+      li.style.padding = "5px";
+      li.style.cursor = "pointer";
+      li.addEventListener("click", () => {
+        input.value = city;
+        suggestions.style.display = "none";
+        updateDisplay(true, false);
+      });
+      suggestions.appendChild(li);
+    });
+    suggestions.style.display = "block";
+  }
+});
+
+checkboxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
+languageBoxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
+professorSelect.addEventListener("change", () => updateDisplay(false, true));
+</script>
+
+
+<!-- ---
+title: "Find a Yoga Center"
+---
+
+## Filter by City, Yoga Style, Professor, and Language
+
+<input type="text" id="citySearch" placeholder="Enter city name..." style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off" />
+<ul id="citySuggestions" style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; display: none; max-height: 150px; overflow-y: auto;"></ul>
+
+<div id="styleFilters" style="margin-bottom: 1em;">
+  <label><input type="checkbox" value="Hatha"> Hatha</label>
+  <label><input type="checkbox" value="Vinyasa"> Vinyasa</label>
+  <label><input type="checkbox" value="Yin"> Yin</label>
+  <label><input type="checkbox" value="Ashtanga"> Ashtanga</label>
+  <label><input type="checkbox" value="Kundalini"> Kundalini</label>
+  <label><input type="checkbox" value="Restorative"> Restorative</label>
+  <label><input type="checkbox" value="Bikram"> Bikram</label>
+</div>
+
+<select id="professorSelect" style="width: 100%; padding: 10px; margin-bottom: 1em;">
+  <option value="">All Professors</option>
+</select>
+
+<div id="languageFilters" style="margin-bottom: 1em;">
+  <label><input type="checkbox" value="Spanish"> Spanish</label>
+  <label><input type="checkbox" value="English"> English</label>
+</div>
+
+<button id="findNearby" style="padding: 10px; width: 100%; margin-bottom: 1em;">📍 Find Centers Near Me (2 km)</button>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<div id="map" style="height: 600px;"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+## Yoga Centers
+
+<ul id="centerList"></ul>
+<p id="noResults" style="display:none; color: red;">No centers found for your search.</p>
+
+<script>
+let centers = [];
+let professors = [];
+let usingNearby = false;
+let userLat = null;
+let userLng = null;
+
+const input = document.getElementById("citySearch");
+const suggestions = document.getElementById("citySuggestions");
+const checkboxes = document.querySelectorAll("#styleFilters input[type=checkbox]");
+const languageBoxes = document.querySelectorAll("#languageFilters input[type=checkbox]");
+const professorSelect = document.getElementById("professorSelect");
+const findNearbyBtn = document.getElementById("findNearby");
+const listEl = document.getElementById("centerList");
+const noResults = document.getElementById("noResults");
+
+const map = L.map('map').setView([40.0, -3.7], 6);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 18,
+  attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+let markers = [];
+
+function updateDisplay(doZoom = false, updateMarkers = true) {
+  const cityVal = input.value.toLowerCase().trim();
+  const selectedStyles = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+  const selectedLangs = Array.from(languageBoxes).filter(cb => cb.checked).map(cb => cb.value);
+  const selectedProf = professorSelect.value;
+
+  const filtered = centers.filter(c => {
+    const matchCity = c.city.toLowerCase().includes(cityVal);
+    const matchStyle = selectedStyles.length === 0 || c.styles.some(style => selectedStyles.includes(style));
+    const matchLang = selectedLangs.length === 0 || c.languages.some(lang => selectedLangs.includes(lang));
+    const matchProf = !selectedProf || c.professors.includes(selectedProf);
+    const matchNearby = !usingNearby || (
+      userLat !== null && userLng !== null &&
+      getDistance(userLat, userLng, c.lat, c.lng) <= 2
+    );
+    return matchNearby && matchCity && matchStyle && matchLang && matchProf;
+  });
+
+  listEl.innerHTML = "";
+  filtered.forEach(c => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${c.page}">${c.name} (${c.city})</a>`;
+    listEl.appendChild(li);
+  });
+
+  noResults.style.display = filtered.length === 0 ? "block" : "none";
+
+  if (updateMarkers) {
+    markers.forEach(m => map.removeLayer(m));
+    markers = [];
+    filtered.forEach(c => {
+      const marker = L.marker([c.lat, c.lng]).addTo(map)
+        .bindPopup(`<a href="${c.page}">${c.name}</a><br>${c.city}`);
+      markers.push(marker);
+    });
+  }
+
+  if (doZoom && cityVal) {
+    const exactMatch = centers.filter(c => c.city.toLowerCase() === cityVal);
+    if (exactMatch.length > 0) {
+      const avgLat = exactMatch.reduce((sum, c) => sum + c.lat, 0) / exactMatch.length;
+      const avgLng = exactMatch.reduce((sum, c) => sum + c.lng, 0) / exactMatch.length;
+      map.setView([avgLat, avgLng], 12);
+    }
+  }
+}
+
+function getDistance(lat1, lng1, lat2, lng2) {
+  const toRad = deg => deg * Math.PI / 180;
+  const R = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+findNearbyBtn.addEventListener("click", () => {
+  if (!usingNearby) {
+    if (!navigator.geolocation) {
+      alert("Geolocation not supported");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(pos => {
+      userLat = pos.coords.latitude;
+      userLng = pos.coords.longitude;
+      usingNearby = true;
+      findNearbyBtn.textContent = "✅ Showing Centers Near Me (2 km)";
+      updateDisplay(true, true);
+    }, () => {
+      alert("Unable to get location");
+    });
+  } else {
+    usingNearby = false;
+    userLat = null;
+    userLng = null;
+    findNearbyBtn.textContent = "📍 Find Centers Near Me (2 km)";
+    updateDisplay(true, true);
+  }
+});
+
+fetch("data/centers.json")
+  .then(res => res.json())
+  .then(data => {
+    centers = data;
+    return fetch("data/professors.json");
+  })
+  .then(res => res.json())
+  .then(data => {
+    professors = data;
+    professors.forEach(p => {
+      const option = document.createElement("option");
+      option.value = p.id;
+      option.textContent = p.name;
+      professorSelect.appendChild(option);
+    });
+    updateDisplay(true, true);
+  });
+
+input.addEventListener("focus", () => {
+  suggestions.innerHTML = "";
+  const li = document.createElement("li");
+  li.textContent = "📍 Use my location (2 km)";
+  li.style.padding = "5px";
+  li.style.cursor = "pointer";
+  li.style.fontStyle = "italic";
+  li.addEventListener("click", () => {
+    suggestions.style.display = "none";
+    findNearbyBtn.click();
+  });
+  suggestions.appendChild(li);
+  suggestions.style.display = "block";
+});
+
+document.addEventListener("click", (e) => {
+  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+    suggestions.style.display = "none";
+  }
+});
+
+input.addEventListener("input", () => {
+  const val = input.value.toLowerCase().trim();
+  suggestions.innerHTML = "";
+
+  const nearMe = document.createElement("li");
+  nearMe.textContent = "📍 Use my location (2 km)";
+  nearMe.style.padding = "5px";
+  nearMe.style.cursor = "pointer";
+  nearMe.style.fontStyle = "italic";
+  nearMe.addEventListener("click", () => {
+    suggestions.style.display = "none";
+    findNearbyBtn.click();
+  });
+  suggestions.appendChild(nearMe);
+
+  if (val.length === 0) {
+    suggestions.style.display = "block";
+    return;
+  }
+
+  const allCities = [...new Set(centers.map(c => c.city))];
+  const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+  if (matches.length > 0) {
+    matches.forEach(city => {
+      const li = document.createElement("li");
+      li.textContent = city;
+      li.style.padding = "5px";
+      li.style.cursor = "pointer";
+      li.addEventListener("click", () => {
+        input.value = city;
+        suggestions.style.display = "none";
+        updateDisplay(true, false);
+      });
+      suggestions.appendChild(li);
+    });
+    suggestions.style.display = "block";
+  }
+});
+
+checkboxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
+languageBoxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
+professorSelect.addEventListener("change", () => updateDisplay(false, true));
+</script>
+
+ -->
