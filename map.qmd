@@ -1,5 +1,5 @@
 ---
-title: "Find a Yoga Center"
+title: "Find a Yoga Centers"
 ---
 
 ## Filter by City, Yoga Style, Professor, and Language
