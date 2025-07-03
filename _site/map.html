@@ -354,10 +354,15 @@ input.addEventListener("input", () => {
       li.style.padding = "5px";
       li.style.cursor = "pointer";
       li.addEventListener("click", () => {
+        usingNearby = false;
+        userLat = null;
+        userLng = null;
+        findNearbyBtn.textContent = "📍 Find Centers Near Me (2 km)";
         input.value = city;
         suggestions.style.display = "none";
-        updateDisplay(true, false);
+        updateDisplay(true, true);
       });
+
       suggestions.appendChild(li);
     });
     suggestions.style.display = "block";
