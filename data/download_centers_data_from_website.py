@@ -3,6 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 import re
 from urllib.parse import urljoin, urlparse
+import os
+
+SCRIPT_DIR = 'C:\\Users\\faria\\yw\\data'
+SCRIPT_DIR = '/Users/marinabosque/Documents/yw/data'
 
 def extract_info_from_page(url):
     result = {"text": "", "emails": [], "socials": {}}
@@ -70,7 +74,11 @@ def extract_info_from_website(base_url):
         headers = {'User-Agent': 'Mozilla/5.0'}
         soup = BeautifulSoup(requests.get(base_url, headers=headers, timeout=10).text, "lxml")
         anchors = soup.find_all("a", href=True)
-        keywords = ["contact", "contacto", "about", "quienes", "nosotros", "contactanos"]
+        keywords = ["contact", "about", "quienes", "nosotros", "clases","clases-yoga",
+                    "clases-de-yoga","clase-de-yoga-y-pilates"," contacto","contactanos","contact-us","el-estudio",
+                    " sobre-mi"," actividades"," quienes-somos","que-ofrecemos"," precios-y-horarios","membership",
+                    " precios-y-horarios"," tarifas","horarios-y-tarifas","suscripciones","horarios","tarifas-estudio", "precios"] 
+        
         subpages = set()
 
         for a in anchors:
@@ -89,7 +97,10 @@ def extract_info_from_website(base_url):
         pass
 
     # Step 3: Extract yoga styles and price info
-    style_keywords = ["hatha", "vinyasa", "yin", "ashtanga", "kundalini", "iyengar", "prenatal", "restorative"]
+    style_keywords = ["hatha", "vinyasa", "yin", "ashtanga", "kundalini", "iyengar", "prenatal", "restorative", 
+                      "jivamukti", "rocket", "awakening", "raja", "bhakti", "karma", "jnana", "acroyoga", "aeroyoga",
+                      "nidra", "hot", "bikram", "power", "restaurativo", "aerial", "postnatal", "embarazadas", 
+                      "yoga para niños", "terapeutico", "navakarana", "soma yoga"]
     found_styles = [s for s in style_keywords if s in combined_text.lower()]
     price_matches = re.findall(r"(€\s?\d+|\d+\s?€)", combined_text)
 
@@ -105,7 +116,8 @@ def extract_info_from_website(base_url):
     }
 
 # === Load Excel ===
-df = pd.read_excel("google_places_enriched.xlsx")  # Must contain a "website" column
+INPUT_EXCEL_PATH = os.path.join(SCRIPT_DIR, "centers_with_google_maps_information.xlsx")
+df = pd.read_excel(INPUT_EXCEL_PATH)  # Must contain a "website" column
 
 # keep the columns place_id and website
 #df = df[["place_id", "website"]]
@@ -127,8 +139,9 @@ for _, row in df.iterrows():
 # === Combine and Save ===
 info_df = pd.DataFrame(info_list)
 final_df = pd.concat([df.reset_index(drop=True), info_df], axis=1)
-final_df.to_excel("google_places_enriched_with_subpages.xlsx", index=False)
-print("✅ Saved to places_enriched_with_subpages.xlsx")
+OUTPUT_EXCEL_PATH = os.path.join(SCRIPT_DIR, "centers_with_google_maps_and_website_information.xlsx")
+final_df.to_excel(OUTPUT_EXCEL_PATH, index=False)
+print("✅ Saved to centers_with_google_maps_and_website_informationxlsx")
 
 
 

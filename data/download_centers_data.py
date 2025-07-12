@@ -5,14 +5,14 @@ import time
 import os
 
 SCRIPT_DIR = 'C:\\Users\\faria\\yw\\data'
-SCRIPT_DIR = 'C:\\Users\\faria\\yw\\data'
+SCRIPT_DIR = '/Users/marinabosque/Documents/yw/data'
 
 # === CONFIGURATION ===
 API_KEY = "AIzaSyDNkzJmsTIW2RVwjfZWnYRVBqJYmKHWicY"  # Replace with your actual API key
 INPUT_EXCEL_PATH = os.path.join(SCRIPT_DIR, "place_ids.xlsx")   # Replace with your Excel file name
 SHEET_NAME = 'Sheet1'  # or use the sheet name, e.g., "Sheet1"
 PLACE_ID_COLUMN = "place_id"  # Column in your Excel that contains Place IDs
-OUTPUT_FILE = os.path.join(SCRIPT_DIR, "google_places_enriched.xlsx")
+OUTPUT_FILE = os.path.join(SCRIPT_DIR, "centers_with_google_maps_information.xlsx")
 
 
 # === FIELDS TO KEEP ===
