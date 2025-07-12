@@ -1,311 +1,17 @@
 [
   {
-    "objectID": "suggest.html",
-    "href": "suggest.html",
-    "title": "Suggest a New Center or Professor",
-    "section": "",
-    "text": "bla bla"
-  },
-  {
-    "objectID": "professors/victor-ortega.html",
-    "href": "professors/victor-ortega.html",
-    "title": "Víctor Ortega",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/victor-ortega.html#about-víctor-ortega",
-    "href": "professors/victor-ortega.html#about-víctor-ortega",
-    "title": "Víctor Ortega",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/raquel-moreno.html",
-    "href": "professors/raquel-moreno.html",
-    "title": "Raquel Moreno",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/raquel-moreno.html#about-raquel-moreno",
-    "href": "professors/raquel-moreno.html#about-raquel-moreno",
-    "title": "Raquel Moreno",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/nuria-diaz.html",
-    "href": "professors/nuria-diaz.html",
-    "title": "Nuria Díaz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/nuria-diaz.html#about-nuria-díaz",
-    "href": "professors/nuria-diaz.html#about-nuria-díaz",
-    "title": "Nuria Díaz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/maria-lopez.html",
-    "href": "professors/maria-lopez.html",
-    "title": "María López",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/maria-lopez.html#about-maría-lópez",
-    "href": "professors/maria-lopez.html#about-maría-lópez",
-    "title": "María López",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/laura-perez.html",
-    "href": "professors/laura-perez.html",
-    "title": "Laura Pérez",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/laura-perez.html#about-laura-pérez",
-    "href": "professors/laura-perez.html#about-laura-pérez",
-    "title": "Laura Pérez",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/javier-fernandez.html",
-    "href": "professors/javier-fernandez.html",
-    "title": "Javier Fernández",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/javier-fernandez.html#about-javier-fernández",
-    "href": "professors/javier-fernandez.html#about-javier-fernández",
-    "title": "Javier Fernández",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/daniel-gomez.html",
-    "href": "professors/daniel-gomez.html",
-    "title": "Daniel Gómez",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/daniel-gomez.html#about-daniel-gómez",
-    "href": "professors/daniel-gomez.html#about-daniel-gómez",
-    "title": "Daniel Gómez",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/carlos-ruiz.html",
-    "href": "professors/carlos-ruiz.html",
-    "title": "Carlos Ruiz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/carlos-ruiz.html#about-carlos-ruiz",
-    "href": "professors/carlos-ruiz.html#about-carlos-ruiz",
-    "title": "Carlos Ruiz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/ana-torres.html",
-    "href": "professors/ana-torres.html",
-    "title": "Ana Torres",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/ana-torres.html#about-ana-torres",
-    "href": "professors/ana-torres.html#about-ana-torres",
-    "title": "Ana Torres",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "old_files/professors/Nuria Díaz.html",
-    "href": "old_files/professors/Nuria Díaz.html",
-    "title": "Nuria Díaz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "old_files/professors/Nuria Díaz.html#about-nuria-díaz",
-    "href": "old_files/professors/Nuria Díaz.html#about-nuria-díaz",
-    "title": "Nuria Díaz",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "old_files/professors/lucia-gomez.html",
-    "href": "old_files/professors/lucia-gomez.html",
-    "title": "Lucía Gómez",
-    "section": "",
-    "text": "Ashtanga and power yoga instructor passionate about strength and breath."
-  },
-  {
-    "objectID": "old_files/professors/lucia-gomez.html#about-lucía-gómez",
-    "href": "old_files/professors/lucia-gomez.html#about-lucía-gómez",
-    "title": "Lucía Gómez",
-    "section": "",
-    "text": "Ashtanga and power yoga instructor passionate about strength and breath."
-  },
-  {
-    "objectID": "old_files/professors/lucia-gomez.html#works-at",
-    "href": "old_files/professors/lucia-gomez.html#works-at",
-    "title": "Lucía Gómez",
-    "section": "Works At",
-    "text": "Works At\n\nOcean Zen\nSoul Stretch"
-  },
-  {
-    "objectID": "old_files/professors/carlos-martinez.html",
-    "href": "old_files/professors/carlos-martinez.html",
-    "title": "Carlos Martínez",
-    "section": "",
-    "text": "Specializes in Yin and Restorative yoga, focusing on relaxation and healing."
-  },
-  {
-    "objectID": "old_files/professors/carlos-martinez.html#about-carlos-martínez",
-    "href": "old_files/professors/carlos-martinez.html#about-carlos-martínez",
-    "title": "Carlos Martínez",
-    "section": "",
-    "text": "Specializes in Yin and Restorative yoga, focusing on relaxation and healing."
-  },
-  {
-    "objectID": "old_files/professors/carlos-martinez.html#works-at",
-    "href": "old_files/professors/carlos-martinez.html#works-at",
-    "title": "Carlos Martínez",
-    "section": "Works At",
-    "text": "Works At\n\nUrban Flow\nYoga Norte"
-  },
-  {
-    "objectID": "old_files/centers/yoga-norte.html",
-    "href": "old_files/centers/yoga-norte.html",
-    "title": "Yoga Norte",
-    "section": "",
-    "text": "Welcome to Yoga Norte in Santander."
-  },
-  {
-    "objectID": "old_files/centers/yoga-norte.html#about-yoga-norte",
-    "href": "old_files/centers/yoga-norte.html#about-yoga-norte",
-    "title": "Yoga Norte",
-    "section": "",
-    "text": "Welcome to Yoga Norte in Santander."
-  },
-  {
-    "objectID": "old_files/centers/yoga-norte.html#professors",
-    "href": "old_files/centers/yoga-norte.html#professors",
-    "title": "Yoga Norte",
-    "section": "Professors",
-    "text": "Professors\n\nCarlos Martínez\nSergio Díaz"
-  },
-  {
-    "objectID": "old_files/centers/soul-stretch.html",
-    "href": "old_files/centers/soul-stretch.html",
-    "title": "Soul Stretch",
-    "section": "",
-    "text": "Welcome to Soul Stretch in Granada."
-  },
-  {
-    "objectID": "old_files/centers/soul-stretch.html#about-soul-stretch",
-    "href": "old_files/centers/soul-stretch.html#about-soul-stretch",
-    "title": "Soul Stretch",
-    "section": "",
-    "text": "Welcome to Soul Stretch in Granada."
-  },
-  {
-    "objectID": "old_files/centers/soul-stretch.html#professors",
-    "href": "old_files/centers/soul-stretch.html#professors",
-    "title": "Soul Stretch",
-    "section": "Professors",
-    "text": "Professors\n\nLucía Gómez"
-  },
-  {
-    "objectID": "old_files/centers/peace-yoga.html",
-    "href": "old_files/centers/peace-yoga.html",
-    "title": "Peace Yoga",
-    "section": "",
-    "text": "Welcome to Peace Yoga in Madrid."
-  },
-  {
-    "objectID": "old_files/centers/peace-yoga.html#about-peace-yoga",
-    "href": "old_files/centers/peace-yoga.html#about-peace-yoga",
-    "title": "Peace Yoga",
-    "section": "",
-    "text": "Welcome to Peace Yoga in Madrid."
-  },
-  {
-    "objectID": "old_files/centers/peace-yoga.html#professors",
-    "href": "old_files/centers/peace-yoga.html#professors",
-    "title": "Peace Yoga",
-    "section": "Professors",
-    "text": "Professors\n\nMaría López\nLaura Sánchez"
-  },
-  {
-    "objectID": "old_files/centers/namaste-center.html",
-    "href": "old_files/centers/namaste-center.html",
-    "title": "Namaste Center",
-    "section": "",
-    "text": "Welcome to Namaste Center in Malaga."
-  },
-  {
-    "objectID": "old_files/centers/namaste-center.html#about-namaste-center",
-    "href": "old_files/centers/namaste-center.html#about-namaste-center",
-    "title": "Namaste Center",
-    "section": "",
-    "text": "Welcome to Namaste Center in Malaga."
-  },
-  {
-    "objectID": "old_files/centers/namaste-center.html#professors",
-    "href": "old_files/centers/namaste-center.html#professors",
-    "title": "Namaste Center",
-    "section": "Professors",
-    "text": "Professors\n\nAna Torres"
-  },
-  {
-    "objectID": "old_files/centers/balance-yoga.html",
-    "href": "old_files/centers/balance-yoga.html",
-    "title": "Balance Yoga",
-    "section": "",
-    "text": "Welcome to Balance Yoga in Bilbao."
-  },
-  {
-    "objectID": "old_files/centers/balance-yoga.html#about-balance-yoga",
-    "href": "old_files/centers/balance-yoga.html#about-balance-yoga",
-    "title": "Balance Yoga",
-    "section": "",
-    "text": "Welcome to Balance Yoga in Bilbao."
-  },
-  {
-    "objectID": "old_files/centers/balance-yoga.html#professors",
-    "href": "old_files/centers/balance-yoga.html#professors",
-    "title": "Balance Yoga",
-    "section": "Professors",
-    "text": "Professors\n\nAna Torres"
-  },
-  {
     "objectID": "map.html",
     "href": "map.html",
     "title": "Find a Yoga Center",
     "section": "",
-    "text": "Hatha  Vinyasa  Yin  Ashtanga  Kundalini  Restorative  Bikram\n\n All Professors \n\n Spanish  English\n\n\n📍 Find Centers Near Me (2 km)"
+    "text": "&lt;div id=\"styleFilters\" style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Yoga Style&lt;/h3&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Hatha\"&gt; Hatha&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Vinyasa\"&gt; Vinyasa&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Yin\"&gt; Yin&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Ashtanga\"&gt; Ashtanga&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Kundalini\"&gt; Kundalini&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Restorative\"&gt; Restorative&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Bikram\"&gt; Bikram&lt;/label&gt;&lt;br&gt;\n&lt;/div&gt;\n\n&lt;div style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Professor&lt;/h3&gt;\n  &lt;select id=\"professorSelect\" style=\"width: 100%; padding: 10px;\"&gt;\n    &lt;option value=\"\"&gt;All Professors&lt;/option&gt;\n  &lt;/select&gt;\n&lt;/div&gt;\n\n&lt;div id=\"languageFilters\" style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Language&lt;/h3&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Spanish\"&gt; Spanish&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"English\"&gt; English&lt;/label&gt;&lt;br&gt;\n&lt;/div&gt;\n\n&lt;button id=\"findNearby\" style=\"padding: 10px; width: 100%; margin-bottom: 1em;\"&gt;📍 Find Centers Near Me (2 km)&lt;/button&gt;\n\n\n\n&lt;div id=\"map\" style=\"height: 600px; width: 100%;\"&gt;&lt;/div&gt;"
   },
   {
     "objectID": "map.html#filter-by-city-yoga-style-professor-and-language",
     "href": "map.html#filter-by-city-yoga-style-professor-and-language",
     "title": "Find a Yoga Center",
     "section": "",
-    "text": "Hatha  Vinyasa  Yin  Ashtanga  Kundalini  Restorative  Bikram\n\n All Professors \n\n Spanish  English\n\n\n📍 Find Centers Near Me (2 km)"
+    "text": "&lt;div id=\"styleFilters\" style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Yoga Style&lt;/h3&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Hatha\"&gt; Hatha&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Vinyasa\"&gt; Vinyasa&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Yin\"&gt; Yin&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Ashtanga\"&gt; Ashtanga&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Kundalini\"&gt; Kundalini&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Restorative\"&gt; Restorative&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Bikram\"&gt; Bikram&lt;/label&gt;&lt;br&gt;\n&lt;/div&gt;\n\n&lt;div style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Professor&lt;/h3&gt;\n  &lt;select id=\"professorSelect\" style=\"width: 100%; padding: 10px;\"&gt;\n    &lt;option value=\"\"&gt;All Professors&lt;/option&gt;\n  &lt;/select&gt;\n&lt;/div&gt;\n\n&lt;div id=\"languageFilters\" style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Language&lt;/h3&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Spanish\"&gt; Spanish&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"English\"&gt; English&lt;/label&gt;&lt;br&gt;\n&lt;/div&gt;\n\n&lt;button id=\"findNearby\" style=\"padding: 10px; width: 100%; margin-bottom: 1em;\"&gt;📍 Find Centers Near Me (2 km)&lt;/button&gt;\n\n\n\n&lt;div id=\"map\" style=\"height: 600px; width: 100%;\"&gt;&lt;/div&gt;"
   },
   {
     "objectID": "map.html#yoga-centers",
@@ -315,408 +21,37 @@
     "text": "Yoga Centers\n\n\n\nNo centers found for your search."
   },
   {
-    "objectID": "center_template.html",
-    "href": "center_template.html",
-    "title": "$title",
+    "objectID": "suggest.html",
+    "href": "suggest.html",
+    "title": "Suggest a New Center or Professor",
+    "section": "",
+    "text": "bla bla"
+  },
+  {
+    "objectID": "professors/sofia-navarro.html",
+    "href": "professors/sofia-navarro.html",
+    "title": "Sofía Navarro",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "center_template.html#about-title",
-    "href": "center_template.html#about-title",
-    "title": "$title",
+    "objectID": "professors/sofia-navarro.html#about-sofía-navarro",
+    "href": "professors/sofia-navarro.html#about-sofía-navarro",
+    "title": "Sofía Navarro",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "centers/urban-flow.html",
-    "href": "centers/urban-flow.html",
-    "title": "Urban Flow",
+    "objectID": "professors/pablo-alonso.html",
+    "href": "professors/pablo-alonso.html",
+    "title": "Pablo Alonso",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "centers/urban-flow.html#about-urban-flow",
-    "href": "centers/urban-flow.html#about-urban-flow",
-    "title": "Urban Flow",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/sevilla-breath.html",
-    "href": "centers/sevilla-breath.html",
-    "title": "Sevilla Breath",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/sevilla-breath.html#about-sevilla-breath",
-    "href": "centers/sevilla-breath.html#about-sevilla-breath",
-    "title": "Sevilla Breath",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/ocean-zen.html",
-    "href": "centers/ocean-zen.html",
-    "title": "Ocean Zen",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/ocean-zen.html#about-ocean-zen",
-    "href": "centers/ocean-zen.html#about-ocean-zen",
-    "title": "Ocean Zen",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/costa-zen.html",
-    "href": "centers/costa-zen.html",
-    "title": "Costa Zen",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/costa-zen.html#about-costa-zen",
-    "href": "centers/costa-zen.html#about-costa-zen",
-    "title": "Costa Zen",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/alma-yoga.html",
-    "href": "centers/alma-yoga.html",
-    "title": "Alma Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/alma-yoga.html#about-alma-yoga",
-    "href": "centers/alma-yoga.html#about-alma-yoga",
-    "title": "Alma Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/balance-yoga.html",
-    "href": "centers/balance-yoga.html",
-    "title": "Balance Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/balance-yoga.html#about-balance-yoga",
-    "href": "centers/balance-yoga.html#about-balance-yoga",
-    "title": "Balance Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/namaste-center.html",
-    "href": "centers/namaste-center.html",
-    "title": "Namaste Center",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/namaste-center.html#about-namaste-center",
-    "href": "centers/namaste-center.html#about-namaste-center",
-    "title": "Namaste Center",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/peace-yoga.html",
-    "href": "centers/peace-yoga.html",
-    "title": "Peace Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/peace-yoga.html#about-peace-yoga",
-    "href": "centers/peace-yoga.html#about-peace-yoga",
-    "title": "Peace Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/soul-stretch.html",
-    "href": "centers/soul-stretch.html",
-    "title": "Soul Stretch",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/soul-stretch.html#about-soul-stretch",
-    "href": "centers/soul-stretch.html#about-soul-stretch",
-    "title": "Soul Stretch",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/yoga-norte.html",
-    "href": "centers/yoga-norte.html",
-    "title": "Yoga Norte",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "centers/yoga-norte.html#about-yoga-norte",
-    "href": "centers/yoga-norte.html#about-yoga-norte",
-    "title": "Yoga Norte",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "old_files/centers/alma-yoga.html",
-    "href": "old_files/centers/alma-yoga.html",
-    "title": "Alma Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "old_files/centers/alma-yoga.html#about-alma-yoga",
-    "href": "old_files/centers/alma-yoga.html#about-alma-yoga",
-    "title": "Alma Yoga",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "old_files/centers/costa-zen.html",
-    "href": "old_files/centers/costa-zen.html",
-    "title": "Costa Zen",
-    "section": "",
-    "text": "Welcome to Costa Zen in Alicante."
-  },
-  {
-    "objectID": "old_files/centers/costa-zen.html#about-costa-zen",
-    "href": "old_files/centers/costa-zen.html#about-costa-zen",
-    "title": "Costa Zen",
-    "section": "",
-    "text": "Welcome to Costa Zen in Alicante."
-  },
-  {
-    "objectID": "old_files/centers/costa-zen.html#professors",
-    "href": "old_files/centers/costa-zen.html#professors",
-    "title": "Costa Zen",
-    "section": "Professors",
-    "text": "Professors\n\nMaría López"
-  },
-  {
-    "objectID": "old_files/centers/ocean-zen.html",
-    "href": "old_files/centers/ocean-zen.html",
-    "title": "Ocean Zen",
-    "section": "",
-    "text": "Welcome to Ocean Zen in Valencia."
-  },
-  {
-    "objectID": "old_files/centers/ocean-zen.html#about-ocean-zen",
-    "href": "old_files/centers/ocean-zen.html#about-ocean-zen",
-    "title": "Ocean Zen",
-    "section": "",
-    "text": "Welcome to Ocean Zen in Valencia."
-  },
-  {
-    "objectID": "old_files/centers/ocean-zen.html#professors",
-    "href": "old_files/centers/ocean-zen.html#professors",
-    "title": "Ocean Zen",
-    "section": "Professors",
-    "text": "Professors\n\nLucía Gómez"
-  },
-  {
-    "objectID": "old_files/centers/sevilla-breath.html",
-    "href": "old_files/centers/sevilla-breath.html",
-    "title": "Sevilla Breath",
-    "section": "",
-    "text": "Welcome to Sevilla Breath in Seville."
-  },
-  {
-    "objectID": "old_files/centers/sevilla-breath.html#about-sevilla-breath",
-    "href": "old_files/centers/sevilla-breath.html#about-sevilla-breath",
-    "title": "Sevilla Breath",
-    "section": "",
-    "text": "Welcome to Sevilla Breath in Seville."
-  },
-  {
-    "objectID": "old_files/centers/sevilla-breath.html#professors",
-    "href": "old_files/centers/sevilla-breath.html#professors",
-    "title": "Sevilla Breath",
-    "section": "Professors",
-    "text": "Professors\n\nSergio Díaz"
-  },
-  {
-    "objectID": "old_files/centers/urban-flow.html",
-    "href": "old_files/centers/urban-flow.html",
-    "title": "Urban Flow",
-    "section": "",
-    "text": "Welcome to Urban Flow in Barcelona."
-  },
-  {
-    "objectID": "old_files/centers/urban-flow.html#about-urban-flow",
-    "href": "old_files/centers/urban-flow.html#about-urban-flow",
-    "title": "Urban Flow",
-    "section": "",
-    "text": "Welcome to Urban Flow in Barcelona."
-  },
-  {
-    "objectID": "old_files/centers/urban-flow.html#professors",
-    "href": "old_files/centers/urban-flow.html#professors",
-    "title": "Urban Flow",
-    "section": "Professors",
-    "text": "Professors\n\nCarlos Martínez"
-  },
-  {
-    "objectID": "old_files/professors/ana-torres.html",
-    "href": "old_files/professors/ana-torres.html",
-    "title": "Ana Torres",
-    "section": "",
-    "text": "Teaches Bikram and Vinyasa with a dynamic and engaging approach."
-  },
-  {
-    "objectID": "old_files/professors/ana-torres.html#about-ana-torres",
-    "href": "old_files/professors/ana-torres.html#about-ana-torres",
-    "title": "Ana Torres",
-    "section": "",
-    "text": "Teaches Bikram and Vinyasa with a dynamic and engaging approach."
-  },
-  {
-    "objectID": "old_files/professors/ana-torres.html#works-at",
-    "href": "old_files/professors/ana-torres.html#works-at",
-    "title": "Ana Torres",
-    "section": "Works At",
-    "text": "Works At\n\nBalance Yoga\nNamaste Center"
-  },
-  {
-    "objectID": "old_files/professors/laura-sanchez.html",
-    "href": "old_files/professors/laura-sanchez.html",
-    "title": "Laura Sánchez",
-    "section": "",
-    "text": "Practitioner of Yin and Hatha yoga focused on alignment and calm."
-  },
-  {
-    "objectID": "old_files/professors/laura-sanchez.html#about-laura-sánchez",
-    "href": "old_files/professors/laura-sanchez.html#about-laura-sánchez",
-    "title": "Laura Sánchez",
-    "section": "",
-    "text": "Practitioner of Yin and Hatha yoga focused on alignment and calm."
-  },
-  {
-    "objectID": "old_files/professors/laura-sanchez.html#works-at",
-    "href": "old_files/professors/laura-sanchez.html#works-at",
-    "title": "Laura Sánchez",
-    "section": "Works At",
-    "text": "Works At\n\nAlma Yoga\nPeace Yoga"
-  },
-  {
-    "objectID": "old_files/professors/maria-lopez.html",
-    "href": "old_files/professors/maria-lopez.html",
-    "title": "María López",
-    "section": "",
-    "text": "Expert in Hatha and Vinyasa yoga with over 10 years of experience."
-  },
-  {
-    "objectID": "old_files/professors/maria-lopez.html#about-maría-lópez",
-    "href": "old_files/professors/maria-lopez.html#about-maría-lópez",
-    "title": "María López",
-    "section": "",
-    "text": "Expert in Hatha and Vinyasa yoga with over 10 years of experience."
-  },
-  {
-    "objectID": "old_files/professors/maria-lopez.html#works-at",
-    "href": "old_files/professors/maria-lopez.html#works-at",
-    "title": "María López",
-    "section": "Works At",
-    "text": "Works At\n\nPeace Yoga\nCosta Zen"
-  },
-  {
-    "objectID": "old_files/professors/sergio-diaz.html",
-    "href": "old_files/professors/sergio-diaz.html",
-    "title": "Sergio Díaz",
-    "section": "",
-    "text": "Kundalini yoga teacher blending meditation, mantra, and movement."
-  },
-  {
-    "objectID": "old_files/professors/sergio-diaz.html#about-sergio-díaz",
-    "href": "old_files/professors/sergio-diaz.html#about-sergio-díaz",
-    "title": "Sergio Díaz",
-    "section": "",
-    "text": "Kundalini yoga teacher blending meditation, mantra, and movement."
-  },
-  {
-    "objectID": "old_files/professors/sergio-diaz.html#works-at",
-    "href": "old_files/professors/sergio-diaz.html#works-at",
-    "title": "Sergio Díaz",
-    "section": "Works At",
-    "text": "Works At\n\nSevilla Breath\nYoga Norte"
-  },
-  {
-    "objectID": "professors/beatriz-molina.html",
-    "href": "professors/beatriz-molina.html",
-    "title": "Beatriz Molina",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/beatriz-molina.html#about-beatriz-molina",
-    "href": "professors/beatriz-molina.html#about-beatriz-molina",
-    "title": "Beatriz Molina",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/carmen-romero.html",
-    "href": "professors/carmen-romero.html",
-    "title": "Carmen Romero",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/carmen-romero.html#about-carmen-romero",
-    "href": "professors/carmen-romero.html#about-carmen-romero",
-    "title": "Carmen Romero",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/isabel-cano.html",
-    "href": "professors/isabel-cano.html",
-    "title": "Isabel Cano",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/isabel-cano.html#about-isabel-cano",
-    "href": "professors/isabel-cano.html#about-isabel-cano",
-    "title": "Isabel Cano",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/jorge-herrera.html",
-    "href": "professors/jorge-herrera.html",
-    "title": "Jorge Herrera",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/jorge-herrera.html#about-jorge-herrera",
-    "href": "professors/jorge-herrera.html#about-jorge-herrera",
-    "title": "Jorge Herrera",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/lucia-martin.html",
-    "href": "professors/lucia-martin.html",
-    "title": "Lucía Martín",
-    "section": "",
-    "text": "Loading…"
-  },
-  {
-    "objectID": "professors/lucia-martin.html#about-lucía-martín",
-    "href": "professors/lucia-martin.html#about-lucía-martín",
-    "title": "Lucía Martín",
+    "objectID": "professors/pablo-alonso.html#about-pablo-alonso",
+    "href": "professors/pablo-alonso.html#about-pablo-alonso",
+    "title": "Pablo Alonso",
     "section": "",
     "text": "Loading…"
   },
@@ -735,44 +70,72 @@
     "text": "Loading…"
   },
   {
-    "objectID": "professors/pablo-alonso.html",
-    "href": "professors/pablo-alonso.html",
-    "title": "Pablo Alonso",
-    "section": "",
-    "text": "Loading…\n\n\n\nYoga Directory Yoga Directory Home /index.html Map /map.html Centers /centers/peace-yoga.html Suggest /suggest.html\n\n\nPablo Alonso – Yoga Directory Pablo Alonso – Yoga Directory Pablo Alonso – Yoga Directory Yoga Directory"
-  },
-  {
-    "objectID": "professors/pablo-alonso.html#about-pablo-alonso",
-    "href": "professors/pablo-alonso.html#about-pablo-alonso",
-    "title": "Pablo Alonso",
-    "section": "",
-    "text": "Loading…\n\n\n\nYoga Directory Yoga Directory Home /index.html Map /map.html Centers /centers/peace-yoga.html Suggest /suggest.html\n\n\nPablo Alonso – Yoga Directory Pablo Alonso – Yoga Directory Pablo Alonso – Yoga Directory Yoga Directory"
-  },
-  {
-    "objectID": "professors/sofia-navarro.html",
-    "href": "professors/sofia-navarro.html",
-    "title": "Sofía Navarro",
+    "objectID": "professors/lucia-martin.html",
+    "href": "professors/lucia-martin.html",
+    "title": "Lucía Martín",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professors/sofia-navarro.html#about-sofía-navarro",
-    "href": "professors/sofia-navarro.html#about-sofía-navarro",
-    "title": "Sofía Navarro",
+    "objectID": "professors/lucia-martin.html#about-lucía-martín",
+    "href": "professors/lucia-martin.html#about-lucía-martín",
+    "title": "Lucía Martín",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professor_template.html",
-    "href": "professor_template.html",
-    "title": "$title",
+    "objectID": "professors/jorge-herrera.html",
+    "href": "professors/jorge-herrera.html",
+    "title": "Jorge Herrera",
     "section": "",
     "text": "Loading…"
   },
   {
-    "objectID": "professor_template.html#about-title",
-    "href": "professor_template.html#about-title",
-    "title": "$title",
+    "objectID": "professors/jorge-herrera.html#about-jorge-herrera",
+    "href": "professors/jorge-herrera.html#about-jorge-herrera",
+    "title": "Jorge Herrera",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/isabel-cano.html",
+    "href": "professors/isabel-cano.html",
+    "title": "Isabel Cano",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/isabel-cano.html#about-isabel-cano",
+    "href": "professors/isabel-cano.html#about-isabel-cano",
+    "title": "Isabel Cano",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/carmen-romero.html",
+    "href": "professors/carmen-romero.html",
+    "title": "Carmen Romero",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/carmen-romero.html#about-carmen-romero",
+    "href": "professors/carmen-romero.html#about-carmen-romero",
+    "title": "Carmen Romero",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/beatriz-molina.html",
+    "href": "professors/beatriz-molina.html",
+    "title": "Beatriz Molina",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/beatriz-molina.html#about-beatriz-molina",
+    "href": "professors/beatriz-molina.html#about-beatriz-molina",
+    "title": "Beatriz Molina",
     "section": "",
     "text": "Loading…"
   },
@@ -791,6 +154,146 @@
     "text": "Loading…"
   },
   {
+    "objectID": "centers/yoga-norte.html",
+    "href": "centers/yoga-norte.html",
+    "title": "Yoga Norte",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/yoga-norte.html#about-yoga-norte",
+    "href": "centers/yoga-norte.html#about-yoga-norte",
+    "title": "Yoga Norte",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/soul-stretch.html",
+    "href": "centers/soul-stretch.html",
+    "title": "Soul Stretch",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/soul-stretch.html#about-soul-stretch",
+    "href": "centers/soul-stretch.html#about-soul-stretch",
+    "title": "Soul Stretch",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/peace-yoga.html",
+    "href": "centers/peace-yoga.html",
+    "title": "Peace Yoga",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/peace-yoga.html#about-peace-yoga",
+    "href": "centers/peace-yoga.html#about-peace-yoga",
+    "title": "Peace Yoga",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/namaste-center.html",
+    "href": "centers/namaste-center.html",
+    "title": "Namaste Center",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/namaste-center.html#about-namaste-center",
+    "href": "centers/namaste-center.html#about-namaste-center",
+    "title": "Namaste Center",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/balance-yoga.html",
+    "href": "centers/balance-yoga.html",
+    "title": "Balance Yoga",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/balance-yoga.html#about-balance-yoga",
+    "href": "centers/balance-yoga.html#about-balance-yoga",
+    "title": "Balance Yoga",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/alma-yoga.html",
+    "href": "centers/alma-yoga.html",
+    "title": "Alma Yoga",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/alma-yoga.html#about-alma-yoga",
+    "href": "centers/alma-yoga.html#about-alma-yoga",
+    "title": "Alma Yoga",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/costa-zen.html",
+    "href": "centers/costa-zen.html",
+    "title": "Costa Zen",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/costa-zen.html#about-costa-zen",
+    "href": "centers/costa-zen.html#about-costa-zen",
+    "title": "Costa Zen",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/ocean-zen.html",
+    "href": "centers/ocean-zen.html",
+    "title": "Ocean Zen",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/ocean-zen.html#about-ocean-zen",
+    "href": "centers/ocean-zen.html#about-ocean-zen",
+    "title": "Ocean Zen",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/sevilla-breath.html",
+    "href": "centers/sevilla-breath.html",
+    "title": "Sevilla Breath",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/sevilla-breath.html#about-sevilla-breath",
+    "href": "centers/sevilla-breath.html#about-sevilla-breath",
+    "title": "Sevilla Breath",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/urban-flow.html",
+    "href": "centers/urban-flow.html",
+    "title": "Urban Flow",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/urban-flow.html#about-urban-flow",
+    "href": "centers/urban-flow.html#about-urban-flow",
+    "title": "Urban Flow",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
     "objectID": "generate_professors_and_centers_files/center_template.html",
     "href": "generate_professors_and_centers_files/center_template.html",
     "title": "$title",
@@ -801,6 +304,132 @@
     "objectID": "generate_professors_and_centers_files/center_template.html#about-title",
     "href": "generate_professors_and_centers_files/center_template.html#about-title",
     "title": "$title",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/ana-torres.html",
+    "href": "professors/ana-torres.html",
+    "title": "Ana Torres",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/ana-torres.html#about-ana-torres",
+    "href": "professors/ana-torres.html#about-ana-torres",
+    "title": "Ana Torres",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/carlos-ruiz.html",
+    "href": "professors/carlos-ruiz.html",
+    "title": "Carlos Ruiz",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/carlos-ruiz.html#about-carlos-ruiz",
+    "href": "professors/carlos-ruiz.html#about-carlos-ruiz",
+    "title": "Carlos Ruiz",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/daniel-gomez.html",
+    "href": "professors/daniel-gomez.html",
+    "title": "Daniel Gómez",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/daniel-gomez.html#about-daniel-gómez",
+    "href": "professors/daniel-gomez.html#about-daniel-gómez",
+    "title": "Daniel Gómez",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/javier-fernandez.html",
+    "href": "professors/javier-fernandez.html",
+    "title": "Javier Fernández",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/javier-fernandez.html#about-javier-fernández",
+    "href": "professors/javier-fernandez.html#about-javier-fernández",
+    "title": "Javier Fernández",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/laura-perez.html",
+    "href": "professors/laura-perez.html",
+    "title": "Laura Pérez",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/laura-perez.html#about-laura-pérez",
+    "href": "professors/laura-perez.html#about-laura-pérez",
+    "title": "Laura Pérez",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/maria-lopez.html",
+    "href": "professors/maria-lopez.html",
+    "title": "María López",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/maria-lopez.html#about-maría-lópez",
+    "href": "professors/maria-lopez.html#about-maría-lópez",
+    "title": "María López",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/nuria-diaz.html",
+    "href": "professors/nuria-diaz.html",
+    "title": "Nuria Díaz",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/nuria-diaz.html#about-nuria-díaz",
+    "href": "professors/nuria-diaz.html#about-nuria-díaz",
+    "title": "Nuria Díaz",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/raquel-moreno.html",
+    "href": "professors/raquel-moreno.html",
+    "title": "Raquel Moreno",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/raquel-moreno.html#about-raquel-moreno",
+    "href": "professors/raquel-moreno.html#about-raquel-moreno",
+    "title": "Raquel Moreno",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/victor-ortega.html",
+    "href": "professors/victor-ortega.html",
+    "title": "Víctor Ortega",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/victor-ortega.html#about-víctor-ortega",
+    "href": "professors/victor-ortega.html#about-víctor-ortega",
+    "title": "Víctor Ortega",
     "section": "",
     "text": "Loading…"
   }

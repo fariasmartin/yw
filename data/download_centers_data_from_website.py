@@ -6,7 +6,7 @@ from urllib.parse import urljoin, urlparse
 import os
 
 SCRIPT_DIR = 'C:\\Users\\faria\\yw\\data'
-SCRIPT_DIR = '/Users/marinabosque/Documents/yw/data'
+#SCRIPT_DIR = '/Users/marinabosque/Documents/yw/data'
 
 def extract_info_from_page(url):
     result = {"text": "", "emails": [], "socials": {}}
@@ -126,6 +126,7 @@ df = pd.read_excel(INPUT_EXCEL_PATH)  # Must contain a "website" column
 info_list = []
 for _, row in df.iterrows():
     website = row.get("website")
+    print(f"🔍 Processing website: {website}")  # <--- ADD THIS LINE
     if pd.notna(website):
         info = extract_info_from_website(website)
     else:
@@ -141,7 +142,7 @@ info_df = pd.DataFrame(info_list)
 final_df = pd.concat([df.reset_index(drop=True), info_df], axis=1)
 OUTPUT_EXCEL_PATH = os.path.join(SCRIPT_DIR, "centers_with_google_maps_and_website_information.xlsx")
 final_df.to_excel(OUTPUT_EXCEL_PATH, index=False)
-print("✅ Saved to centers_with_google_maps_and_website_informationxlsx")
+print("✅ Saved to centers_with_google_maps_and_website_information.xlsx")
 
 
 

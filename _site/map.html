@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -115,16 +115,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#filter-by-city-yoga-style-professor-and-language" id="toc-filter-by-city-yoga-style-professor-and-language" class="nav-link active" data-scroll-target="#filter-by-city-yoga-style-professor-and-language">Filter by City, Yoga Style, Professor, and Language</a></li>
-  <li><a href="#yoga-centers" id="toc-yoga-centers" class="nav-link" data-scroll-target="#yoga-centers">Yoga Centers</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -152,21 +143,40 @@ ul.task-list li input[type="checkbox"] {
 <input type="text" id="citySearch" placeholder="Enter city name..." style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off">
 <ul id="citySuggestions" style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; display: none; max-height: 150px; overflow-y: auto;">
 </ul>
-<div id="styleFilters" style="margin-bottom: 1em;">
-<p><label><input type="checkbox" value="Hatha"> Hatha</label> <label><input type="checkbox" value="Vinyasa"> Vinyasa</label> <label><input type="checkbox" value="Yin"> Yin</label> <label><input type="checkbox" value="Ashtanga"> Ashtanga</label> <label><input type="checkbox" value="Kundalini"> Kundalini</label> <label><input type="checkbox" value="Restorative"> Restorative</label> <label><input type="checkbox" value="Bikram"> Bikram</label></p>
-</div>
-<p><select id="professorSelect" style="width: 100%; padding: 10px; margin-bottom: 1em;"> <option value="">All Professors</option> </select></p>
-<div id="languageFilters" style="margin-bottom: 1em;">
-<p><label><input type="checkbox" value="Spanish"> Spanish</label> <label><input type="checkbox" value="English"> English</label></p>
-</div>
-<button id="findNearby" style="padding: 10px; width: 100%; margin-bottom: 1em;">
-📍 Find Centers Near Me (2 km)
-</button>
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
-<div id="map" style="height: 600px;">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 1em;">
+<!-- LEFT SIDEBAR FILTERS -->
+<div style="flex: 1 1 250px; max-width: 300px;">
+<pre><code>&lt;div id="styleFilters" style="margin-bottom: 1em;"&gt;
+  &lt;h3&gt;Yoga Style&lt;/h3&gt;
+  &lt;label&gt;&lt;input type="checkbox" value="Hatha"&gt; Hatha&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="checkbox" value="Vinyasa"&gt; Vinyasa&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="checkbox" value="Yin"&gt; Yin&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="checkbox" value="Ashtanga"&gt; Ashtanga&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="checkbox" value="Kundalini"&gt; Kundalini&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="checkbox" value="Restorative"&gt; Restorative&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="checkbox" value="Bikram"&gt; Bikram&lt;/label&gt;&lt;br&gt;
+&lt;/div&gt;
 
+&lt;div style="margin-bottom: 1em;"&gt;
+  &lt;h3&gt;Professor&lt;/h3&gt;
+  &lt;select id="professorSelect" style="width: 100%; padding: 10px;"&gt;
+    &lt;option value=""&gt;All Professors&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+
+&lt;div id="languageFilters" style="margin-bottom: 1em;"&gt;
+  &lt;h3&gt;Language&lt;/h3&gt;
+  &lt;label&gt;&lt;input type="checkbox" value="Spanish"&gt; Spanish&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="checkbox" value="English"&gt; English&lt;/label&gt;&lt;br&gt;
+&lt;/div&gt;
+
+&lt;button id="findNearby" style="padding: 10px; width: 100%; margin-bottom: 1em;"&gt;📍 Find Centers Near Me (2 km)&lt;/button&gt;</code></pre>
 </div>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<!-- RIGHT MAP CONTAINER -->
+<div style="flex: 3 1 600px; min-width: 300px;">
+<pre><code>&lt;div id="map" style="height: 600px; width: 100%;"&gt;&lt;/div&gt;</code></pre>
+</div>
+</div>
 </section>
 <section id="yoga-centers" class="level2">
 <h2 class="anchored" data-anchor-id="yoga-centers">Yoga Centers</h2>

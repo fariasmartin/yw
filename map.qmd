@@ -1,5 +1,8 @@
 ---
 title: "Find a Yoga Center"
+format:
+  html:
+    mainfont: Savate
 ---
 
 ## Filter by City, Yoga Style, Professor, and Language
