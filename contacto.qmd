@@ -1,0 +1,25 @@
+---
+title: "Contacto"
+---
+
+
+Gracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro, un/a profesor/a o informarnos de alguna corrección.
+
+
+
+```{=html}
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScXrAjdVHfkB-50QpnDUGvp5FDrTORbgftis9ledNwKzz2lRQ/viewform?embedded=true" target="_blank" style="display: inline-block; background-color: #800000; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+📩 Abrir formulario de sugerencias
+</a>
+
+
+```{=html}
+<div style="text-align: center; margin-top: 2em; margin-bottom: 3em;">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScXrAjdVHfkB-50QpnDUGvp5FDrTORbgftis9ledNwKzz2lRQ/viewform?embedded=true" target="_blank" style="background-color: #800000; color: white; padding: 15px 25px; font-size: 18px; text-decoration: none; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); display: inline-block;">
+    ✍️ Sugerir un Centro o Profesor
+  </a>
+</div>
+
+
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScXrAjdVHfkB-50QpnDUGvp5FDrTORbgftis9ledNwKzz2lRQ/viewform?embedded=true" width="640" height="512" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>

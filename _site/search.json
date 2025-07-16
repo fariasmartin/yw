@@ -4,14 +4,14 @@
     "href": "map.html",
     "title": "Find a Yoga Center",
     "section": "",
-    "text": "&lt;div id=\"styleFilters\" style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Yoga Style&lt;/h3&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Hatha\"&gt; Hatha&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Vinyasa\"&gt; Vinyasa&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Yin\"&gt; Yin&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Ashtanga\"&gt; Ashtanga&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Kundalini\"&gt; Kundalini&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Restorative\"&gt; Restorative&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Bikram\"&gt; Bikram&lt;/label&gt;&lt;br&gt;\n&lt;/div&gt;\n\n&lt;div style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Professor&lt;/h3&gt;\n  &lt;select id=\"professorSelect\" style=\"width: 100%; padding: 10px;\"&gt;\n    &lt;option value=\"\"&gt;All Professors&lt;/option&gt;\n  &lt;/select&gt;\n&lt;/div&gt;\n\n&lt;div id=\"languageFilters\" style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Language&lt;/h3&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Spanish\"&gt; Spanish&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"English\"&gt; English&lt;/label&gt;&lt;br&gt;\n&lt;/div&gt;\n\n&lt;button id=\"findNearby\" style=\"padding: 10px; width: 100%; margin-bottom: 1em;\"&gt;📍 Find Centers Near Me (2 km)&lt;/button&gt;\n\n\n\n&lt;div id=\"map\" style=\"height: 600px; width: 100%;\"&gt;&lt;/div&gt;"
+    "text": "Filters\n\n    \n    \n\n    \n      Yoga Styles\n       Hatha\n       Vinyasa\n       Yin\n       Ashtanga\n       Kundalini\n       Restorative\n       Bikram\n    \n\n    \n      Professor\n      \n        All Professors\n      \n    \n\n    \n      Languages\n       Spanish\n       English\n    \n\n    📍 Find Centers Near Me (2 km)\n  \n\n  \n    \n    Yoga Centers\n    \n    No centers found for your search."
   },
   {
     "objectID": "map.html#filter-by-city-yoga-style-professor-and-language",
     "href": "map.html#filter-by-city-yoga-style-professor-and-language",
     "title": "Find a Yoga Center",
     "section": "",
-    "text": "&lt;div id=\"styleFilters\" style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Yoga Style&lt;/h3&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Hatha\"&gt; Hatha&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Vinyasa\"&gt; Vinyasa&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Yin\"&gt; Yin&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Ashtanga\"&gt; Ashtanga&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Kundalini\"&gt; Kundalini&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Restorative\"&gt; Restorative&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Bikram\"&gt; Bikram&lt;/label&gt;&lt;br&gt;\n&lt;/div&gt;\n\n&lt;div style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Professor&lt;/h3&gt;\n  &lt;select id=\"professorSelect\" style=\"width: 100%; padding: 10px;\"&gt;\n    &lt;option value=\"\"&gt;All Professors&lt;/option&gt;\n  &lt;/select&gt;\n&lt;/div&gt;\n\n&lt;div id=\"languageFilters\" style=\"margin-bottom: 1em;\"&gt;\n  &lt;h3&gt;Language&lt;/h3&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"Spanish\"&gt; Spanish&lt;/label&gt;&lt;br&gt;\n  &lt;label&gt;&lt;input type=\"checkbox\" value=\"English\"&gt; English&lt;/label&gt;&lt;br&gt;\n&lt;/div&gt;\n\n&lt;button id=\"findNearby\" style=\"padding: 10px; width: 100%; margin-bottom: 1em;\"&gt;📍 Find Centers Near Me (2 km)&lt;/button&gt;\n\n\n\n&lt;div id=\"map\" style=\"height: 600px; width: 100%;\"&gt;&lt;/div&gt;"
+    "text": "Hatha  Vinyasa  Yin  Ashtanga  Kundalini  Restorative  Bikram\n\n All Professors \n\n Spanish  English\n\n\n📍 Find Centers Near Me (2 km)"
   },
   {
     "objectID": "map.html#yoga-centers",
@@ -23,9 +23,9 @@
   {
     "objectID": "suggest.html",
     "href": "suggest.html",
-    "title": "Suggest a New Center or Professor",
+    "title": "Contacto",
     "section": "",
-    "text": "bla bla"
+    "text": "Gracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro, un/a profesor/a o informarnos de alguna corrección.\n 📩 Abrir formulario de sugerencias \n\n ✍️ Sugerir un Centro o Profesor \n\n\nLoading…"
   },
   {
     "objectID": "professors/sofia-navarro.html",
@@ -432,5 +432,12 @@
     "title": "Víctor Ortega",
     "section": "",
     "text": "Loading…"
+  },
+  {
+    "objectID": "contacto.html",
+    "href": "contacto.html",
+    "title": "Contacto",
+    "section": "",
+    "text": "Gracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro, un/a profesor/a o informarnos de alguna corrección.\n 📩 Abrir formulario de sugerencias \n\n ✍️ Sugerir un Centro o Profesor \n\n\nLoading…"
   }
 ]

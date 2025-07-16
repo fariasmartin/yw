@@ -166,5 +166,8 @@
   },
   "generate_professors_and_centers_files/professor_template.qmd": {
     "professor_template.html": "363ca630"
+  },
+  "contacto.qmd": {
+    "contacto.html": "b96cda67"
   }
 }

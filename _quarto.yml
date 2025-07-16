@@ -15,8 +15,8 @@ website:
         href: map.qmd
       - text: Centers
         href: centers/peace-yoga.qmd
-      - text: Suggest
-        href: suggest.qmd  # 👈 This is the new menu item
+      - text: Cotacto
+        href: contacto.qmd  # 👈 This is the new menu item
 
 format:
   html:
