@@ -90,15 +90,15 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./map.html"> 
-<span class="menu-text">Map</span></a>
+<span class="menu-text">Encuentra tu centro</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./centers/peace-yoga.html"> 
-<span class="menu-text">Centers</span></a>
+<span class="menu-text">que hacemos con esto?</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./contacto.html"> 
@@ -201,7 +201,9 @@ ul.task-list li input[type="checkbox"] {
 <h1>🧘 Encuentra tu próximo centro de yoga en España</h1>
 <p>Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. Todo en un solo lugar.</p>
 <div class="hero-search">
-<p><input type="text" placeholder="Busca una ciudad..." onkeypress="if(event.key === 'Enter'){window.location.href='/map.html?city='+this.value}"></p>
+<input type="text" id="citySearch" placeholder="Busca una ciudad..." autocomplete="off">
+<ul id="citySuggestions" class="suggestion-list">
+</ul>
 </div>
 <div class="centered">
 <p><a href="./map.html" class="cta-button">🗺️ Buscar centros de yoga</a></p>
@@ -243,6 +245,48 @@ ul.task-list li input[type="checkbox"] {
 <p>“Me encanta poder ver todos los centros en el mapa y filtrar por estilos. Es súper práctico.”<br>
 — Diego, Valencia</p>
 </blockquote>
+<script>
+let centers = [];
+
+const input = document.getElementById("citySearch");
+const suggestions = document.getElementById("citySuggestions");
+
+fetch("/data/centers.json")
+  .then(res => res.json())
+  .then(data => {
+    centers = data;
+  });
+
+input.addEventListener("input", () => {
+  const val = input.value.toLowerCase().trim();
+  suggestions.innerHTML = "";
+
+  if (val.length === 0) {
+    suggestions.style.display = "none";
+    return;
+  }
+
+  const allCities = [...new Set(centers.map(c => c.city))];
+  const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+
+  matches.forEach(city => {
+    const li = document.createElement("li");
+    li.textContent = city;
+    li.addEventListener("click", () => {
+      window.location.href = `/map.html?city=${encodeURIComponent(city)}`;
+    });
+    suggestions.appendChild(li);
+  });
+
+  suggestions.style.display = matches.length > 0 ? "block" : "none";
+});
+
+document.addEventListener("click", (e) => {
+  if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+    suggestions.style.display = "none";
+  }
+});
+</script>
 
 
 </section>

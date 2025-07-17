@@ -6,6 +6,8 @@ title: "Contacto"
 Gracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro, un/a profesor/a o informarnos de alguna corrección.
 
 
+AÑADIR BOTON PARA QUE LA GENTE DE OPINION SOBRE LA PAGINA EN VEZ DE SOBRE LOS DATOS
+
 
 ```{=html}
 <a href="https://docs.google.com/forms/d/e/1FAIpQLScXrAjdVHfkB-50QpnDUGvp5FDrTORbgftis9ledNwKzz2lRQ/viewform?embedded=true" target="_blank" style="display: inline-block; background-color: #800000; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: bold;">

@@ -90,22 +90,6 @@ let userLat = null;
 let userLng = null;
 
 const input = document.getElementById("citySearch");
-
-// Detectar parámetro "city" en la URL
-const urlParams = new URLSearchParams(window.location.search);
-const cityParam = urlParams.get("city");
-
-if (cityParam) {
-  input.value = cityParam;
-  usingNearby = false;
-  userLat = null;
-  userLng = null;
-  findNearbyBtn.textContent = "📍 Find Centers Near Me (2 km)";
-  updateDisplay(true, true);
-}
-
-
-
 const suggestions = document.getElementById("citySuggestions");
 const checkboxes = document.querySelectorAll("#styleFilters input[type=checkbox]");
 const languageBoxes = document.querySelectorAll("#languageFilters input[type=checkbox]");
@@ -341,6 +325,53 @@ input.addEventListener("input", () => {
 checkboxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
 languageBoxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
 professorSelect.addEventListener("change", () => updateDisplay(false, true));
+
+
+// Read URL parameters on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // City
+  const cityParam = urlParams.get("city");
+  if (cityParam) {
+    input.value = cityParam;
+  }
+
+  // Yoga styles (comma-separated)
+  const stylesParam = urlParams.get("styles");
+  if (stylesParam) {
+    const styleValues = stylesParam.split(",");
+    checkboxes.forEach(cb => {
+      cb.checked = styleValues.includes(cb.value);
+    });
+  }
+
+  // Languages (comma-separated)
+  const langsParam = urlParams.get("langs");
+  if (langsParam) {
+    const langValues = langsParam.split(",");
+    languageBoxes.forEach(cb => {
+      cb.checked = langValues.includes(cb.value);
+    });
+  }
+
+  // Professor (exact id)
+  const profParam = urlParams.get("prof");
+  if (profParam) {
+    professorSelect.value = profParam;
+  }
+
+  // Nearby search
+  const nearbyParam = urlParams.get("nearby");
+  if (nearbyParam === "1") {
+    findNearbyBtn.click();
+  } else {
+    updateDisplay(true, true);
+  }
+});
+
+
+
 </script>
 
 
