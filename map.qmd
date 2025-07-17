@@ -90,6 +90,22 @@ let userLat = null;
 let userLng = null;
 
 const input = document.getElementById("citySearch");
+
+// Detectar parámetro "city" en la URL
+const urlParams = new URLSearchParams(window.location.search);
+const cityParam = urlParams.get("city");
+
+if (cityParam) {
+  input.value = cityParam;
+  usingNearby = false;
+  userLat = null;
+  userLng = null;
+  findNearbyBtn.textContent = "📍 Find Centers Near Me (2 km)";
+  updateDisplay(true, true);
+}
+
+
+
 const suggestions = document.getElementById("citySuggestions");
 const checkboxes = document.querySelectorAll("#styleFilters input[type=checkbox]");
 const languageBoxes = document.querySelectorAll("#languageFilters input[type=checkbox]");

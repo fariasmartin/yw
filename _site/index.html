@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Find a Yoga Center – Yoga Directory</title>
+<title>Inicio – Yoga Directory</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./contacto.html"> 
-<span class="menu-text">Cotacto</span></a>
+<span class="menu-text">Contacto</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -112,21 +112,21 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Find a Yoga Center</h1>
+<h1 class="title">Inicio</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -138,59 +138,115 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><input type="text" id="homeSearch" placeholder="Enter city name..." style="width: 100%; padding: 10px;"></p>
-<script>
-  const input = document.getElementById("homeSearch");
-  input.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      const city = input.value.trim();
-      if (city) {
-        window.location.href = `map.html?city=${encodeURIComponent(city)}`;
-      }
-    }
-  });
-</script>
-<!-- ## Search by City
-
-<input type="text" id="citySearch" placeholder="Enter city name..." style="width: 100%; padding: 10px;" />
-
-<ul id="centerList"></ul>
-
- -->
-<!-- <script>
-  const centers = [
-    { name: "Peace Yoga", city: "Madrid", page: "centers/peace-yoga.html" },
-    { name: "Urban Flow", city: "Barcelona", page: "centers/urban-flow.html" },
-    { name: "Ocean Zen", city: "Valencia", page: "centers/ocean-zen.html" },
-    { name: "Sevilla Breath", city: "Seville", page: "centers/sevilla-breath.html" },
-    { name: "Balance Yoga", city: "Bilbao", page: "centers/balance-yoga.html" },
-    { name: "Alma Yoga", city: "Zaragoza", page: "centers/alma-yoga.html" },
-    { name: "Costa Zen", city: "Alicante", page: "centers/costa-zen.html" },
-    { name: "Yoga Norte", city: "Santander", page: "centers/yoga-norte.html" },
-    { name: "Soul Stretch", city: "Granada", page: "centers/soul-stretch.html" },
-    { name: "Namaste Center", city: "Malaga", page: "centers/namaste-center.html" }
-  ];
-
-  const listEl = document.getElementById("centerList");
-  const input = document.getElementById("citySearch");
-
-  function updateList() {
-    const val = input.value.toLowerCase();
-    listEl.innerHTML = "";
-    centers
-      .filter(c => c.city.toLowerCase().includes(val))
-      .forEach(c => {
-        const li = document.createElement("li");
-        li.innerHTML = `<a href="${c.page}">${c.name} (${c.city})</a>`;
-        listEl.appendChild(li);
-      });
+<p><link href="https://fonts.googleapis.com/css2?family=Savate&amp;display=swap" rel="stylesheet"></p>
+<style>
+  body {
+    font-family: 'Savate', sans-serif;
   }
+  .cta-button {
+    background-color: #800000;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    margin: 1em 0;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .centered {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  .features {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1em;
+  }
+  .features li {
+    margin-bottom: 0.8em;
+  }
+  blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 2em auto;
+    max-width: 600px;
+  }
+  .hero-search {
+    text-align: center;
+    margin-top: 2em;
+  }
+  .hero-search input[type="text"] {
+    padding: 12px;
+    font-size: 18px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  .popular-cities {
+    text-align: center;
+    margin: 3em 0;
+  }
+  .popular-cities a {
+    margin: 0 10px;
+    display: inline-block;
+    color: #800000;
+    text-decoration: none;
+    font-size: 1.1em;
+  }
+</style>
+<section id="encuentra-tu-próximo-centro-de-yoga-en-españa" class="level1">
+<h1>🧘 Encuentra tu próximo centro de yoga en España</h1>
+<p>Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. Todo en un solo lugar.</p>
+<div class="hero-search">
+<p><input type="text" placeholder="Busca una ciudad..." onkeypress="if(event.key === 'Enter'){window.location.href='/map.html?city='+this.value}"></p>
+</div>
+<div class="centered">
+<p><a href="./map.html" class="cta-button">🗺️ Buscar centros de yoga</a></p>
+</div>
+<div class="popular-cities">
+<p><strong>🌟 Ciudades más buscadas:</strong><br> <a href="./map.html?city=Barcelona">🏖️ Barcelona</a> <a href="./map.html?city=Madrid">🏰 Madrid</a> <a href="./map.html?city=Valencia">🌊 Valencia</a> <a href="./map.html?city=Granada">🌄 Granada</a></p>
+</div>
+<section id="qué-puedes-hacer" class="level2">
+<h2 class="anchored" data-anchor-id="qué-puedes-hacer">¿Qué puedes hacer?</h2>
+<ul class="features">
+<li>
+🔍 Filtrar por ciudad, estilo de yoga, idioma o profesor/a
+</li>
+<li>
+📍 Ver centros cercanos a tu ubicación
+</li>
+<li>
+📆 Buscar clases en distintos idiomas
+</li>
+<li>
+🧘 Descubrir nuevas escuelas y profesores
+</li>
+</ul>
+</section>
+<section id="colabora" class="level2">
+<h2 class="anchored" data-anchor-id="colabora">🤝 Colabora</h2>
+<p>¿Conoces un centro o profesor/a que debería estar aquí?</p>
+<div class="centered">
+<p><a href="./suggest.html" class="cta-button">✍️ Sugerir un centro o profesor</a></p>
+</div>
+</section>
+<section id="lo-que-dicen-nuestros-usuarios" class="level2">
+<h2 class="anchored" data-anchor-id="lo-que-dicen-nuestros-usuarios">🗨️ Lo que dicen nuestros usuarios</h2>
+<blockquote class="blockquote">
+<p>“Encontré clases de Vinyasa en inglés cerca de mí en solo 2 minutos.”<br>
+— Laura, Barcelona</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“Me encanta poder ver todos los centros en el mapa y filtrar por estilos. Es súper práctico.”<br>
+— Diego, Valencia</p>
+</blockquote>
 
-  input.addEventListener("input", updateList);
-  updateList();
-</script> -->
 
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
