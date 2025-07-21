@@ -159,6 +159,24 @@ ul.task-list li input[type="checkbox"] {
     display: block;
     margin-bottom: 0.3em;
   }
+
+
+# Mejorar aparienia de menu de estilos
+  #styleCheckboxes::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #styleCheckboxes::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  #styleCheckboxes::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+
+
 </style>
 <div class="layout">
 
@@ -170,21 +188,27 @@ ul.task-list li input[type="checkbox"] {
     <input type="text" id="citySearch" placeholder="Buscar centros en mi ciudad" style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off">
     <ul id="citySuggestions" style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; display: none; max-height: 150px; overflow-y: auto;"></ul>
 
-    <!-- <div id="styleFilters" style="margin-bottom: 1em;">
-      <strong>Estilos de yoga</strong><br />
-      <label><input type="checkbox" value="Hatha"> Hatha</label>
-      <label><input type="checkbox" value="Vinyasa"> Vinyasa</label>
-      <label><input type="checkbox" value="Yin"> Yin</label>
-      <label><input type="checkbox" value="Ashtanga"> Ashtanga</label>
-      <label><input type="checkbox" value="Kundalini"> Kundalini</label>
-      <label><input type="checkbox" value="Restorative"> Restorative</label>
-      <label><input type="checkbox" value="Bikram"> Bikram</label>
-    </div> -->
 
     <div id="styleFilters" style="margin-bottom: 1em;">
-  <strong>Estilos de yoga</strong><br>
-  <div id="styleCheckboxes"></div>
-</div>
+      <strong>Estilos de yoga</strong><br>
+      <div id="styleCheckboxes" style="max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 0.5em;"></div>
+    </div>
+
+    
+    <!-- <details open style="margin-bottom: 1em;">
+  <summary><strong>Estilos de yoga</strong></summary>
+  <div id="styleCheckboxes" style="
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5em;
+    margin-top: 0.5em;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 0.5em;
+  "></div>
+</details> -->
+
 
 
 
@@ -224,7 +248,7 @@ let userLng = null;
 
 const input = document.getElementById("citySearch");
 const suggestions = document.getElementById("citySuggestions");
-const checkboxes = document.querySelectorAll("#styleFilters input[type=checkbox]");
+let checkboxes = []; // Will be populated dynamically
 const languageBoxes = document.querySelectorAll("#languageFilters input[type=checkbox]");
 const professorSelect = document.getElementById("professorSelect");
 const findNearbyBtn = document.getElementById("findNearby");
@@ -311,7 +335,7 @@ findNearbyBtn.addEventListener("click", () => {
 
       // Clear city input when nearby search is activated
       input.value = "";
-      findNearbyBtn.textContent = "✅ Showing Centers Near Me (2 km)";
+      findNearbyBtn.textContent = "✅ Mostrando centros cerca de mí";
       updateDisplay(true, true);
     }, () => {
       alert("Unable to get location");
@@ -341,40 +365,39 @@ fetch("data/centers.json")
       option.textContent = p.name;
       professorSelect.appendChild(option);
     });
-
-
-
-
-
-    return fetch("data/styles.json");
-  })
-  .then(res => res.json())
-  .then(styles => {
-    const container = document.getElementById("styleCheckboxes");
-    styles.forEach(style => {
-      const label = document.createElement("label");
-      label.style.display = "block";
-      label.style.marginBottom = "0.3em";
-      label.innerHTML = `<input type="checkbox" value="${style}"> ${style}`;
-      container.appendChild(label);
-    });
-
-    // hook listeners on the newly created inputs
-    const styleCheckboxes = document.querySelectorAll("#styleFilters input[type=checkbox]");
-    styleCheckboxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
-
-    // apply ?styles=… URL param if present
-    const urlParams = new URLSearchParams(window.location.search);
-    const stylesParam = urlParams.get("styles");
-    if (stylesParam) {
-      const values = stylesParam.split(",");
-      styleCheckboxes.forEach(cb => {
-        cb.checked = values.includes(cb.value);
-      });
-    }
-
     updateDisplay(true, true);
+  })
+  .then(() => {
+  return fetch("data/styles.json");
+})
+.then(res => res.json())
+.then(styles => {
+  const container = document.getElementById("styleCheckboxes");
+  styles.forEach(style => {
+    const label = document.createElement("label");
+    label.innerHTML = `<input type="checkbox" value="${style}"> ${style}`;
+    container.appendChild(label);
   });
+
+  // Reassign checkboxes variable now that they exist
+  checkboxes = document.querySelectorAll("#styleFilters input[type=checkbox]");
+  checkboxes.forEach(cb => cb.addEventListener("change", () => updateDisplay(false, true)));
+
+  // Also re-run URL params logic in case styles are pre-selected
+  const stylesParam = new URLSearchParams(window.location.search).get("styles");
+  if (stylesParam) {
+    const styleValues = stylesParam.split(",");
+    checkboxes.forEach(cb => {
+      cb.checked = styleValues.includes(cb.value);
+    });
+  }
+
+  updateDisplay(true, true);
+});
+
+
+
+
 
 input.addEventListener("focus", () => {
 
@@ -395,7 +418,7 @@ input.addEventListener("focus", () => {
 
     // Inside both focus and input event handlers (after nearMe block)
   const showAll = document.createElement("li");
-  showAll.textContent = "🌍 Show All Cities";
+  showAll.textContent = "Todas las ciudades";
   showAll.style.padding = "5px";
   showAll.style.cursor = "pointer";
   showAll.style.fontStyle = "italic";
@@ -443,7 +466,7 @@ input.addEventListener("input", () => {
 
   // Inside both focus and input event handlers (after nearMe block)
   const showAll = document.createElement("li");
-  showAll.textContent = "🌍 Show All Cities";
+  showAll.textContent = "Toas las ciudades";
   showAll.style.padding = "5px";
   showAll.style.cursor = "pointer";
   showAll.style.fontStyle = "italic";

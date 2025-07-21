@@ -128,16 +128,16 @@
   {
     "objectID": "index.html#qué-puedes-hacer",
     "href": "index.html#qué-puedes-hacer",
-    "title": "Inicio",
+    "title": "Encuentra tu próximo centro de yoga",
     "section": "¿Qué puedes hacer?",
-    "text": "¿Qué puedes hacer?\n\n\n🔍 Filtrar por ciudad, estilo de yoga, idioma o profesor/a\n\n\n📍 Ver centros cercanos a tu ubicación\n\n\n📆 Buscar clases en distintos idiomas\n\n\n🧘 Descubrir nuevas escuelas y profesores"
+    "text": "¿Qué puedes hacer?\n\n\nFiltrar por ciudad, estilo de yoga, idioma o profesor/a\n\n\nVer centros cercanos a tu ubicación\n\n\nBuscar clases en distintos idiomas\n\n\nDescubrir nuevas escuelas y profesores"
   },
   {
     "objectID": "index.html#colabora",
     "href": "index.html#colabora",
-    "title": "Inicio",
-    "section": "🤝 Colabora",
-    "text": "🤝 Colabora\n¿Conoces un centro o profesor/a que debería estar aquí?\n\n✍️ Sugerir un centro o profesor"
+    "title": "Encuentra tu próximo centro de yoga",
+    "section": "Colabora",
+    "text": "Colabora\n¿Conoces un centro o profesor/a que debería estar aquí?\n\nPonte en contacto con nosotros"
   },
   {
     "objectID": "index.html#lo-que-dicen-nuestros-usuarios",
@@ -303,9 +303,9 @@
   {
     "objectID": "contacto.html",
     "href": "contacto.html",
-    "title": "Contacto",
+    "title": "Yoga Directory",
     "section": "",
-    "text": "Gracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro, un/a profesor/a o informarnos de alguna corrección.\nAÑADIR BOTON PARA QUE LA GENTE DE OPINION SOBRE LA PAGINA EN VEZ DE SOBRE LOS DATOS\n 📩 Abrir formulario de sugerencias \n\n ✍️ Sugerir un Centro o Profesor \n\n\nLoading…"
+    "text": "Contáctanos\n\n\nGracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro o profesor/a, o enviarnos comentarios, dudas o correcciones.\n\n ➕ Añadir o editar centros y profesores \n 💬 Envíanos tu mensaje por cualquier otra razón"
   },
   {
     "objectID": "generate_professors_and_centers_files/professor_template.html",
@@ -326,7 +326,7 @@
     "href": "map.html",
     "title": "Encuentra tu centro de Yoga",
     "section": "",
-    "text": "Filtrar por\n\n    Cerca de mí\n\n    \n    \n\n    \n\n    \n  Estilos de yoga\n  \n\n\n\n\n    \n      Profesores\n      \n        Todos los profesores\n      \n    \n\n    \n      Idiomas\n       Español\n       Inglés\n    \n\n    \n\n  \n\n  \n    \n    Centros de Yoga\n    \n    No centers found for your search."
+    "text": "Filtrar por\n\n    Cerca de mí\n\n    \n    \n\n\n    \n      Estilos de yoga\n      \n    \n\n    \n    \n\n\n\n\n    \n      Profesores\n      \n        Todos los profesores\n      \n    \n\n    \n      Idiomas\n       Español\n       Inglés\n    \n\n    \n\n  \n\n  \n    \n    Centros de Yoga\n    \n    No centers found for your search."
   },
   {
     "objectID": "professors/beatriz-molina.html",
@@ -439,5 +439,12 @@
     "title": "Sofía Navarro",
     "section": "",
     "text": "Loading…"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Encuentra tu próximo centro de yoga",
+    "section": "",
+    "text": "Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. Todo en un solo lugar."
   }
 ]

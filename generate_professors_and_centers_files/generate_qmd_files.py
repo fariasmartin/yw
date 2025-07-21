@@ -11,10 +11,10 @@ with open("data/professors.json", "r", encoding="utf-8") as f:
     professors = json.load(f)
 
 # Load templates
-with open("center_template.qmd", "r", encoding="utf-8") as f:
+with open("generate_professors_and_centers_files/center_template.qmd", "r", encoding="utf-8") as f:
     center_template = Template(f.read())
 
-with open("professor_template.qmd", "r", encoding="utf-8") as f:
+with open("generate_professors_and_centers_files/professor_template.qmd", "r", encoding="utf-8") as f:
     professor_template = Template(f.read())
 
 # Ensure output directories exist
@@ -39,21 +39,7 @@ for professor in professors:
     with open(filename, "w", encoding="utf-8") as f:
         f.write(professor_template.substitute(title=professor["name"], id=professor["id"]))
 
-# Generate styles JSON file
 
-# Load your Excel file
-df = pd.read_excel("data/centers_with_google_maps_and_website_information.xlsx")
-
-# Clean and extract styles
-style_series = df['styles'].dropna().apply(lambda x: [s.strip() for s in str(x).split(',')])
-unique_styles = sorted(set(style for sublist in style_series for style in sublist))
-
-# Capitalize the first letter of each style
-unique_styles = [style.capitalize() for style in unique_styles]
-
-# Save to styles.json
-with open("data/styles.json", "w", encoding="utf-8") as f:
-    json.dump(unique_styles, f, ensure_ascii=False, indent=2)
 
 
 

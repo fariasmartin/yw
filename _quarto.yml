@@ -4,6 +4,7 @@ project:
 resources:
   - data/centers.json
   - data/professors.json
+  - data/styles.json
 
 website:
   title: "Yoga Directory"
