@@ -1,6 +1,7 @@
 from pathlib import Path
 import json
 from string import Template
+import pandas as pd
 
 # Load JSON data
 with open("data/centers.json", "r", encoding="utf-8") as f:
@@ -38,31 +39,21 @@ for professor in professors:
     with open(filename, "w", encoding="utf-8") as f:
         f.write(professor_template.substitute(title=professor["name"], id=professor["id"]))
 
+# Generate styles JSON file
 
-# import os
-# import json
-# from string import Template
+# Load your Excel file
+df = pd.read_excel("data/centers_with_google_maps_and_website_information.xlsx")
 
-# # Load the template
-# with open("center_template.qmd", "r", encoding="utf-8") as tf:
-#     template_str = tf.read()
-# template = Template(template_str)
+# Clean and extract styles
+style_series = df['styles'].dropna().apply(lambda x: [s.strip() for s in str(x).split(',')])
+unique_styles = sorted(set(style for sublist in style_series for style in sublist))
 
-# # Load the centers JSON
-# with open("data/centers.json", "r", encoding="utf-8") as cf:
-#     centers = json.load(cf)
+# Capitalize the first letter of each style
+unique_styles = [style.capitalize() for style in unique_styles]
 
-# # Ensure the output folder exists
-# output_dir = "centers"
-# os.makedirs(output_dir, exist_ok=True)
-
-# # Generate one .qmd per center
-# for center in centers:
-#     output_path = os.path.join(output_dir, f"{center['id'].lower().replace(' ', '-').replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').replace('ñ','n')}.qmd")
-#     with open(output_path, "w", encoding="utf-8") as f:
-#         f.write(template.substitute(title=center['name'], id=center['id']))
-
-# print("✅ All center .qmd files have been generated.")
+# Save to styles.json
+with open("data/styles.json", "w", encoding="utf-8") as f:
+    json.dump(unique_styles, f, ensure_ascii=False, indent=2)
 
 
 
