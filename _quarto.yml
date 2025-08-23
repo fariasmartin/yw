@@ -15,7 +15,7 @@ website:
       - text: Encuentra tu centro
         href: map.qmd
       - text: Contacto
-        href: contacto.qmd  # 👈 This is the new menu item
+        href: contacto.qmd
 
 format:
   html:

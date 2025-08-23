@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Savate&display=swap');
 
-/* Fuente general */
+/* General layout */
 body {
   font-family: 'Savate', sans-serif;
   background-color: #fffdfb;
 }
 
-/* NAVBAR burdeos */
+/* Navbar customization */
 .navbar {
   background-color: #800000 !important;
   color: white !important;
@@ -21,7 +21,5 @@ body {
 .navbar a:hover,
 .navbar-brand:hover,
 .navbar-nav .nav-link:hover {
-  color: #ffcccc !important;
+  color: #ffcccc !important; /* lightened burdeos */
 }
-
-

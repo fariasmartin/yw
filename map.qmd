@@ -1,5 +1,6 @@
 ---
-title: "Encuentra tu centro de Yoga"
+title: "Encuentra tu centro"
+page-layout: full
 format:
   html:
     toc: false
@@ -8,56 +9,161 @@ format:
 <link href="https://fonts.googleapis.com/css2?family=Savate&display=swap" rel="stylesheet">
 
 <style>
+  :root {
+    --burdeos: #800000;
+    --burdeos-hover: #a3333d;
+    --gris-claro: #f4f1f1;
+    --blanco-roto: #fafafa;
+    --texto-oscuro: #222222;
+    --borde-gris: #ccc;
+
+    /* layout vars */
+    --sidebar-w: 300px;  /* ancho columna filtros */
+    --gap: 1em;        /* separación columnas */
+  }
+
   body {
-    font-family: 'Savate', sans-serif;
-    margin: 2em;
+    font-family: 'Savate', sans-serif !important;
+    padding: 0 !important;
+    background-color: var(--blanco-roto) !important;
+    padding-top: 100px !important; /* separa del navbar fijo */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
-  .layout {
-    display: flex;
-    gap: 2em;
-    align-items: flex-start;
+  /* Contenedor 2 columnas */
+  .layout{
+    display:flex;
+    flex-wrap:wrap;
+    gap: var(--gap);
+    align-items: stretch;   /* igual altura */
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 30px !important; /* ajusta a gusto */
   }
 
-  .sidebar {
-    flex: 0 0 300px;
+  /* Filtros (izquierda) */
+  .sidebar{
+    flex: 0 0 var(--sidebar-w);
+    max-width: var(--sidebar-w);
+    background-color: var(--gris-claro) !important;
+    padding: 1em 1em 1em 1em !important;   /* usa 0.5em si quieres un poco de aire */
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.05);
   }
 
-  .main {
-    flex: 1;
+  .sidebar h2{
+  margin-top: 0 !important;
+  /* opcional: ajusta el espacio hacia abajo */
+  margin-bottom: .5em;
+}
+
+  /* Columna derecha (mapa + lista) */
+  .main{
+    flex: 1 1 0;
+    max-width: none !important;
+    margin: 0 0 2em 0 !important; /* sin centrado */
   }
 
-  label {
-    display: block;
-    margin-bottom: 0.3em;
+  h2 { color: #000 !important; }
+
+  /* Mapa */
+  #map{
+    width: 100%;
+    height: 80vh !important;
+    border-radius: 12px;
+    margin-bottom: 1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  }
+
+  /* Lista resultados */
+  #centerList { list-style: none; padding-left: 0; margin-top: 1em; }
+  #centerList li {
+    background: var(--gris-claro);
+    padding: .6em .8em;
+    border-radius: 8px;
+    margin-bottom: .5em;
+  }
+  #centerList a { text-decoration: none; color: var(--burdeos); font-weight: bold; }
+
+  /* Oculta el “#” de ancla en títulos */
+  h2 a.anchorjs-link { display: none !important; }
+
+  /* Botones */
+  button{
+    background-color: var(--burdeos);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 1em;
+    cursor: pointer;
+    transition: background-color .3s;
+  }
+  button:hover{ background-color: var(--burdeos-hover); }
+
+  /* Estilos de yoga: UNA columna */
+  #styleCheckboxes { display: block !important; max-height: 250px; overflow-y: auto; border: 1px solid #ccc; padding: .5em; }
+  #styleCheckboxes label { display: block !important; margin-bottom: .3em; }
+
+  /* Responsive */
+  @media (max-width: 768px){
+    .layout{ flex-direction: column; align-items: stretch; }
+    .sidebar{ width: 100%; max-width: 100%; }
+    .main{ width: 100%; flex: 1 1 100%; padding: 0 .5em; }
+    #map{ height: 50vh !important; }
   }
 
 
-# Mejorar aparienia de menu de estilos
-  #styleCheckboxes::-webkit-scrollbar {
-    width: 6px;
-  }
 
-  #styleCheckboxes::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-  }
 
-  #styleCheckboxes::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-  }
+
+/* Elimina la columna de margen y el padding lateral de Quarto */
+.page-columns .content{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  grid-template-columns: [screen-start] minmax(0,1fr) [screen-end] !important;
+}
+.page-columns .content > *{ grid-column: screen !important; }
+
+/* Quita límites y centrados de contenedores de Quarto */
+.quarto-container, .content, main, .page-layout, .column-page, #quarto-content{
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
 
 
 
 </style>
 
+
+
+
+
 ```{=html}
 <div class="layout">
 
-  <div class="sidebar">
-    <h2>Filtrar por</h2>
+  <!-- <div style="margin-bottom: 1.5em;">
+    <p style="font-size: 1.1em; line-height: 1.6;">
+      Bienvenido al directorio de centros de yoga en España. Explora, filtra y descubre espacios cerca de ti donde practicar distintos estilos de yoga, aprender con profesores especializados y conectar con una comunidad que comparte tu interés por el bienestar físico y mental. Utiliza los filtros para buscar por ciudad, estilo, idioma o proximidad. ¡Tu próximo centro de yoga está más cerca de lo que crees!
+    </p>
+  </div> -->
 
-    <button id="findNearby" style="padding: 10px; width: 100%; margin-bottom: 1em;">Cerca de mí</button>
+
+  <div class="sidebar">
+   
+    <button id="findNearby">Cerca de mí</button>
 
     <input type="text" id="citySearch" placeholder="Buscar centros en mi ciudad" style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off" />
     <ul id="citySuggestions" style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; display: none; max-height: 150px; overflow-y: auto;"></ul>
@@ -65,7 +171,7 @@ format:
 
     <div id="styleFilters" style="margin-bottom: 1em;">
       <strong>Estilos de yoga</strong><br />
-      <div id="styleCheckboxes" style="max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 0.5em;"></div>
+      <div id="styleCheckboxes"></div>
     </div>
 
     
@@ -104,7 +210,7 @@ format:
   </div>
 
   <div class="main">
-    <div id="map" style="height: 600px; margin-bottom: 1em;"></div>
+    <div id="map"></div>
     <h2>Centros de Yoga</h2>
     <ul id="centerList"></ul>
     <p id="noResults" style="display:none; color: red;">No centers found for your search.</p>

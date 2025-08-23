@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "Encuentra tu centro",
+    "section": "",
+    "text": "Cerca de mí\n\n    \n    \n\n\n    \n      Estilos de yoga\n      \n    \n\n    \n    \n\n\n\n\n    \n      Profesores\n      \n        Todos los profesores\n      \n    \n\n    \n      Idiomas\n       Español\n       Inglés\n    \n\n    \n\n  \n\n  \n    \n    Centros de Yoga\n    \n    No centers found for your search."
+  },
+  {
     "objectID": "professors/victor-ortega.html",
     "href": "professors/victor-ortega.html",
     "title": "Víctor Ortega",
@@ -124,27 +131,6 @@
     "title": "Ana Torres",
     "section": "",
     "text": "Loading…"
-  },
-  {
-    "objectID": "index.html#qué-puedes-hacer",
-    "href": "index.html#qué-puedes-hacer",
-    "title": "Encuentra tu próximo centro de yoga",
-    "section": "¿Qué puedes hacer?",
-    "text": "¿Qué puedes hacer?\n\n\nFiltrar por ciudad, estilo de yoga, idioma o profesor/a\n\n\nVer centros cercanos a tu ubicación\n\n\nBuscar clases en distintos idiomas\n\n\nDescubrir nuevas escuelas y profesores"
-  },
-  {
-    "objectID": "index.html#colabora",
-    "href": "index.html#colabora",
-    "title": "Encuentra tu próximo centro de yoga",
-    "section": "Colabora",
-    "text": "Colabora\n¿Conoces un centro o profesor/a que debería estar aquí?\n\nPonte en contacto con nosotros"
-  },
-  {
-    "objectID": "index.html#lo-que-dicen-nuestros-usuarios",
-    "href": "index.html#lo-que-dicen-nuestros-usuarios",
-    "title": "Inicio",
-    "section": "🗨️ Lo que dicen nuestros usuarios",
-    "text": "🗨️ Lo que dicen nuestros usuarios\n\n“Encontré clases de Vinyasa en inglés cerca de mí en solo 2 minutos.”\n— Laura, Barcelona\n\n\n“Me encanta poder ver todos los centros en el mapa y filtrar por estilos. Es súper práctico.”\n— Diego, Valencia"
   },
   {
     "objectID": "generate_professors_and_centers_files/center_template.html",
@@ -322,13 +308,6 @@
     "text": "Loading…"
   },
   {
-    "objectID": "map.html",
-    "href": "map.html",
-    "title": "Encuentra tu centro de Yoga",
-    "section": "",
-    "text": "Filtrar por\n\n    Cerca de mí\n\n    \n    \n\n\n    \n      Estilos de yoga\n      \n    \n\n    \n    \n\n\n\n\n    \n      Profesores\n      \n        Todos los profesores\n      \n    \n\n    \n      Idiomas\n       Español\n       Inglés\n    \n\n    \n\n  \n\n  \n    \n    Centros de Yoga\n    \n    No centers found for your search."
-  },
-  {
     "objectID": "professors/beatriz-molina.html",
     "href": "professors/beatriz-molina.html",
     "title": "Beatriz Molina",
@@ -446,5 +425,19 @@
     "title": "Encuentra tu próximo centro de yoga",
     "section": "",
     "text": "Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. Todo en un solo lugar."
+  },
+  {
+    "objectID": "index.html#qué-puedes-hacer",
+    "href": "index.html#qué-puedes-hacer",
+    "title": "Encuentra tu próximo centro de yoga",
+    "section": "¿Qué puedes hacer?",
+    "text": "¿Qué puedes hacer?\n\n\nFiltrar por ciudad, estilo de yoga, idioma o profesor/a\n\n\nVer centros cercanos a tu ubicación\n\n\nBuscar clases en distintos idiomas\n\n\nDescubrir nuevas escuelas y profesores"
+  },
+  {
+    "objectID": "index.html#colabora",
+    "href": "index.html#colabora",
+    "title": "Encuentra tu próximo centro de yoga",
+    "section": "Colabora",
+    "text": "Colabora\n¿Conoces un centro o profesor/a que debería estar aquí?\n\nPonte en contacto con nosotros"
   }
 ]
