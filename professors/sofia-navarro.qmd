@@ -2,44 +2,130 @@
 title: "Sofía Navarro"
 ---
 
-## About Sofía Navarro
+<link href="https://fonts.googleapis.com/css2?family=Savate&display=swap" rel="stylesheet">
+
+<style>
+  :root{ --burdeos:#800000; --gris-claro:#f7f5f5; --borde:#e6e6e6; }
+  body{ font-family:'Savate', sans-serif; }
+  .prof-wrap{ max-width:1100px; margin:0 auto; padding:1rem 1.25rem; }
+
+  /* Breadcrumbs */
+  .crumbs{ font-size:.95rem; color:#666; margin:.25rem 0 1rem; }
+  .crumbs a{ color:inherit; text-decoration:none; }
+  .crumbs a:hover{ text-decoration:underline; }
+
+  /* Layout + cards */
+  .grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap:1.2rem; align-items:start; }
+  .card{ background:var(--gris-claro); border:1px solid var(--borde); border-radius:14px; padding:1rem 1.2rem; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+  .section-title{ margin:.2rem 0 .6rem; font-size:1.1rem; }
+
+  /* Chips */
+  .chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.4rem 0 .8rem; }
+  .chip{ background:#fff; border:1px solid var(--borde); border-radius:999px; padding:.25rem .65rem; font-size:.95rem; }
+
+  /* Listas y enlaces */
+  .meta-list{ list-style:none; margin:0; padding-left:0; }
+  .meta-list li small{ color:#666; margin-left:.35rem; }
+  .link{ color:var(--burdeos); text-decoration:none; font-weight:700; }
+  .link:hover{ text-decoration:underline; }
+
+  /* CTA */
+  .cta-row{ display:flex; gap:.6rem; flex-wrap:wrap; margin:.6rem 0 1rem; }
+  .btn{ background:var(--burdeos); color:#fff; border:none; border-radius:10px; padding:.5rem .9rem; font-weight:700; text-decoration:none; display:inline-block; }
+  .btn.outline{ background:#fff; color:var(--burdeos); border:1px solid var(--burdeos); }
+  .btn:hover{ filter:brightness(.95); }
+
+  @media(max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+</style>
 
 <div id="professorInfo">Loading...</div>
 
 <script>
-const professorId = "sofia-navarro";
+document.addEventListener('DOMContentLoaded', async () => {
+  const professorId = "sofia-navarro";
+  const container = document.getElementById("professorInfo");
 
-Promise.all([
-  fetch("../data/professors.json").then(res => res.json()),
-  fetch("../data/centers.json").then(res => res.json())
-])
-.then(([professors, centers]) => {
-  const prof = professors.find(p => p.id === professorId);
-  if (!prof) {
-    document.getElementById("professorInfo").innerHTML = "<p>Professor not found.</p>";
-    return;
+  // Rutas relativas robustas
+  const BASE = location.pathname.includes('/professors/') ? '..' : '.';
+  const PROFS_URL   = `${BASE}/data/professors.json`;
+  const CENTERS_URL = `${BASE}/data/centers.json`;
+
+  try {
+    const [profsRes, centersRes] = await Promise.all([
+      fetch(PROFS_URL),
+      fetch(CENTERS_URL)
+    ]);
+    if (!profsRes.ok || !centersRes.ok) {
+      throw new Error(`Fetch failed: profs(${profsRes.status}) centers(${centersRes.status})`);
+    }
+    const [professors, centers] = await Promise.all([profsRes.json(), centersRes.json()]);
+
+    const prof = professors.find(p => p.id === professorId);
+    if (!prof) {
+      container.innerHTML = "<div class='prof-wrap'><div class='card'><p>Professor not found.</p></div></div>";
+      return;
+    }
+
+    // Centros donde enseña (acepta 'center_ids' o 'centers')
+    const centerIds = prof.center_ids || prof.centers || [];
+    const centerData = centerIds
+      .map(cid => centers.find(c => c.id === cid))
+      .filter(Boolean);
+
+    const languages = prof.languages || [];
+
+    // Helper para link de centro
+    const slugFromCenter = (c) =>
+      c?.id ? c.id.toLowerCase().replace(/\s+/g,'-')
+            : (c?.page ? c.page.split('/').pop().replace(/\.html?$/,'') : '');
+
+    container.innerHTML = `
+      <div class="prof-wrap">
+
+
+        <div class="cta-row">
+              <a class="btn outline" href="${BASE}/map.html">← Volver al mapa</a>
+        </div>
+
+        <div class="grid">
+          <!-- Columna izquierda: bio + idiomas -->
+          <div class="card">
+            <h3 class="section-title">Sobre ${prof.name}</h3>
+            <p>${prof.bio ? prof.bio : "No biography available."}</p>
+
+            <h3 class="section-title">Idiomas</h3>
+            ${
+              languages.length
+              ? `<div class="chips">
+                   ${languages.map(l => `<span class="chip">${l}</span>`).join("")}
+                 </div>`
+              : `<p>—</p>`
+            }
+          </div>
+
+          <!-- Columna derecha: enseña en -->
+          <div class="card">
+            <h3 class="section-title">Enseña en</h3>
+            ${
+              centerData.length
+              ? `<ul class="meta-list">
+                   ${centerData.map(c => {
+                      const slug = slugFromCenter(c);
+                      const href = slug ? `${BASE}/centers/${slug}.html` : (c.page || "#");
+                      return `<li><a class="link" href="${href}">${c.name}</a><small>(${c.city})</small></li>`;
+                   }).join("")}
+                 </ul>`
+              : `<p>—</p>`
+            }
+
+            
+          </div>
+        </div>
+      </div>
+    `;
+  } catch (err) {
+    console.error('[prof page] Error:', err);
+    container.innerHTML = "<div class='prof-wrap'><div class='card'><p>Error loading data.</p></div></div>";
   }
-
-  const centerData = (prof.center_ids || []).map(cid =>
-    centers.find(c => c.id === cid)
-  ).filter(c => c);
-
-  document.getElementById("professorInfo").innerHTML = `
-    <p>${prof.bio || "No biography available."}</p>
-
-    <h3>Languages Spoken</h3>
-    <ul>${(prof.languages || []).map(l => `<li>${l}</li>`).join("")}</ul>
-
-    <h3>Teaches At</h3>
-    <ul>
-      ${centerData.map(c => 
-        `<li><a href="../centers/${c.page.split("/").pop()}">${c.name}</a> (${c.city})</li>`
-      ).join("")}
-    </ul>
-  `;
-})
-.catch(err => {
-  console.error(err);
-  document.getElementById("professorInfo").innerHTML = "<p>Error loading data.</p>";
 });
 </script>

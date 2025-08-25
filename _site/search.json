@@ -4,7 +4,7 @@
     "href": "map.html",
     "title": "Encuentra tu centro",
     "section": "",
-    "text": "Cerca de mí\n\n    \n    \n\n\n    \n      Estilos de yoga\n      \n    \n\n    \n    \n\n\n\n\n    \n      Profesores\n      \n        Todos los profesores\n      \n    \n\n    \n      Idiomas\n       Español\n       Inglés\n    \n\n    \n\n  \n\n  \n    \n    Centros de Yoga\n    \n    No centers found for your search."
+    "text": "Limpiar filtros\n\n    Cerca de mí\n\n\n  \n    \n    \n  \n\n\n    \n      Estilos de yoga\n      \n    \n\n    \n    \n\n\n\n\n    \n      Profesores\n      \n        Todos los profesores\n      \n    \n\n    \n      Idiomas\n       Español\n       Inglés\n    \n\n    \n\n  \n\n  \n    \n    Centros de Yoga\n    \n    No centers found for your search."
   },
   {
     "objectID": "professors/victor-ortega.html",
@@ -135,7 +135,7 @@
   {
     "objectID": "generate_professors_and_centers_files/center_template.html",
     "href": "generate_professors_and_centers_files/center_template.html",
-    "title": "$title",
+    "title": "§title",
     "section": "",
     "text": "Loading…"
   },
@@ -289,21 +289,21 @@
   {
     "objectID": "contacto.html",
     "href": "contacto.html",
-    "title": "Yoga Directory",
+    "title": "Centros de Yoga",
     "section": "",
-    "text": "Contáctanos\n\n\nGracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro o profesor/a, o enviarnos comentarios, dudas o correcciones.\n\n ➕ Añadir o editar centros y profesores \n 💬 Envíanos tu mensaje por cualquier otra razón"
+    "text": "Contáctanos\n\n\nGracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro o profesor/a, o enviarnos comentarios, dudas o correcciones. AÑADIR DESCRIPCION DEL CENTRO EN FORMULARIO\n\n ➕ Añadir o editar centros y profesores \n 💬 Envíanos tu mensaje por cualquier otra razón"
   },
   {
     "objectID": "generate_professors_and_centers_files/professor_template.html",
     "href": "generate_professors_and_centers_files/professor_template.html",
-    "title": "$title",
+    "title": "§title",
     "section": "",
     "text": "Loading…"
   },
   {
     "objectID": "generate_professors_and_centers_files/professor_template.html#about-title",
     "href": "generate_professors_and_centers_files/professor_template.html#about-title",
-    "title": "$title",
+    "title": "§title",
     "section": "",
     "text": "Loading…"
   },
@@ -439,5 +439,124 @@
     "title": "Encuentra tu próximo centro de yoga",
     "section": "Colabora",
     "text": "Colabora\n¿Conoces un centro o profesor/a que debería estar aquí?\n\nPonte en contacto con nosotros"
+  },
+  {
+    "objectID": "professors/victor-ortega.html#about-title",
+    "href": "professors/victor-ortega.html#about-title",
+    "title": "Víctor Ortega",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/raquel-moreno.html#about-title",
+    "href": "professors/raquel-moreno.html#about-title",
+    "title": "Raquel Moreno",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/nuria-diaz.html#about-title",
+    "href": "professors/nuria-diaz.html#about-title",
+    "title": "Nuria Díaz",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/maria-lopez.html#about-title",
+    "href": "professors/maria-lopez.html#about-title",
+    "title": "María López",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/laura-perez.html#about-title",
+    "href": "professors/laura-perez.html#about-title",
+    "title": "Laura Pérez",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/javier-fernandez.html#about-title",
+    "href": "professors/javier-fernandez.html#about-title",
+    "title": "Javier Fernández",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/daniel-gomez.html#about-title",
+    "href": "professors/daniel-gomez.html#about-title",
+    "title": "Daniel Gómez",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/carlos-ruiz.html#about-title",
+    "href": "professors/carlos-ruiz.html#about-title",
+    "title": "Carlos Ruiz",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/ana-torres.html#about-title",
+    "href": "professors/ana-torres.html#about-title",
+    "title": "Ana Torres",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/beatriz-molina.html#about-title",
+    "href": "professors/beatriz-molina.html#about-title",
+    "title": "Beatriz Molina",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/carmen-romero.html#about-title",
+    "href": "professors/carmen-romero.html#about-title",
+    "title": "Carmen Romero",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/isabel-cano.html#about-title",
+    "href": "professors/isabel-cano.html#about-title",
+    "title": "Isabel Cano",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/jorge-herrera.html#about-title",
+    "href": "professors/jorge-herrera.html#about-title",
+    "title": "Jorge Herrera",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/lucia-martin.html#about-title",
+    "href": "professors/lucia-martin.html#about-title",
+    "title": "Lucía Martín",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/miguel-sanchez.html#about-title",
+    "href": "professors/miguel-sanchez.html#about-title",
+    "title": "Miguel Sánchez",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/pablo-alonso.html#about-title",
+    "href": "professors/pablo-alonso.html#about-title",
+    "title": "Pablo Alonso",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "professors/sofia-navarro.html#about-title",
+    "href": "professors/sofia-navarro.html#about-title",
+    "title": "Sofía Navarro",
+    "section": "",
+    "text": "Loading…"
   }
 ]

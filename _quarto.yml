@@ -7,7 +7,7 @@ resources:
   - data/styles.json
 
 website:
-  title: "Yoga Directory"
+  title: "Centros de Yoga"
   navbar:
     left:
       - text: Inicio
@@ -16,6 +16,7 @@ website:
         href: map.qmd
       - text: Contacto
         href: contacto.qmd
+  search: false
 
 format:
   html:

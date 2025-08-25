@@ -38,12 +38,12 @@ format:
     display:flex;
     flex-wrap:wrap;
     gap: var(--gap);
-    align-items: stretch;   /* igual altura */
     width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
     margin-top: 30px !important; /* ajusta a gusto */
+    align-items: flex-start !important;
   }
 
   /* Filtros (izquierda) */
@@ -74,7 +74,7 @@ format:
   /* Mapa */
   #map{
     width: 100%;
-    height: 80vh !important;
+    height: clamp(420px, 75dvh, 900px);
     border-radius: 12px;
     margin-bottom: 1em;
     box-shadow: 0 2px 8px rgba(0,0,0,.1);
@@ -144,6 +144,53 @@ format:
 
 
 
+/* H1 responsivo y sin cortes (título de la página de Quarto) */
+.quarto-title-block .title, .page-title, h1 {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  line-height: 1.25;
+  margin: 0 0 .5rem 0 !important;
+  padding: 0 1rem;              /* un poco de aire lateral */
+  white-space: normal;          /* permite salto de línea */
+  overflow-wrap: anywhere;      /* evita “cortes” raros */
+}
+/* Asegura padding horizontal del contenedor del título */
+.quarto-title-block, .page-header {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Variante secundaria para el botón limpiar */
+button.secondary{
+  background:#fff;
+  color: var(--burdeos);
+  border: 1px solid var(--burdeos);
+}
+button.secondary:hover{
+  background:#f7f7f7;
+}
+
+/* Botón "Limpiar filtros" más bajo/compacto */
+#clearFilters{
+  padding: 6px 10px;     /* antes: 12px */
+  font-size: 0.9rem;     /* un poco más pequeño */
+  line-height: 1.1;      /* reduce la altura de línea */
+  margin-bottom: .5em;   /* menos espacio debajo */
+}
+
+
+.city-autocomplete{ position: relative; }
+#citySuggestions{
+  list-style: none;
+  margin: .25rem 0 0 0; padding: 0;
+  position: absolute; top: calc(100% - 10px); left: 0; right: 0;
+  background: #fff; border: 1px solid var(--borde-gris);
+  border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  display: none; max-height: 200px; overflow-y: auto; z-index: 1000;
+}
+#citySuggestions li{ padding: .5rem .6rem; cursor: pointer; }
+#citySuggestions li:hover{ background: #f7f7f7; }
+
+
 
 </style>
 
@@ -163,10 +210,22 @@ format:
 
   <div class="sidebar">
    
+
+    <button id="clearFilters" class="secondary">Limpiar filtros</button>
+
     <button id="findNearby">Cerca de mí</button>
 
-    <input type="text" id="citySearch" placeholder="Buscar centros en mi ciudad" style="width: 100%; padding: 10px; margin-bottom: 10px;" autocomplete="off" />
-    <ul id="citySuggestions" style="list-style: none; padding: 0; margin: 0; border: 1px solid #ccc; display: none; max-height: 150px; overflow-y: auto;"></ul>
+
+  <div class="city-autocomplete">
+    <input
+      type="text"
+      id="citySearch"
+      placeholder="Buscar centros en mi ciudad"
+      style="width: 100%; padding: 10px; margin-bottom: 10px;"
+      autocomplete="off"
+    />
+    <ul id="citySuggestions" role="listbox" aria-label="Sugerencias de ciudades"></ul>
+  </div>
 
 
     <div id="styleFilters" style="margin-bottom: 1em;">
@@ -244,6 +303,44 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap'
 }).addTo(map);
 let markers = [];
+
+
+const clearBtn = document.getElementById("clearFilters");
+
+// Valores por defecto del mapa (los que ya usas)
+const DEFAULT_LAT = 40.0;
+const DEFAULT_LNG = -3.7;
+const DEFAULT_ZOOM = 6;
+
+clearBtn.addEventListener("click", () => {
+  // Apaga “cerca de mí”
+  usingNearby = false;
+  userLat = null;
+  userLng = null;
+  findNearbyBtn.textContent = "Cerca de mí";
+
+  // Resetea filtros
+  input.value = "";
+  suggestions.style.display = "none";
+
+  if (checkboxes && checkboxes.length) {
+    checkboxes.forEach(cb => cb.checked = false);
+  }
+  if (languageBoxes && languageBoxes.length) {
+    languageBoxes.forEach(cb => cb.checked = false);
+  }
+  professorSelect.value = "";
+
+  // Centra el mapa por defecto y repinta
+  map.setView([DEFAULT_LAT, DEFAULT_LNG], DEFAULT_ZOOM);
+  updateDisplay(true, true);
+});
+
+
+
+// 🔧 Asegura que Leaflet recalcula el tamaño cuando la página carga o cambia de tamaño
+window.addEventListener('load', () => setTimeout(() => map.invalidateSize(), 0));
+window.addEventListener('resize', () => map.invalidateSize());
 
 function updateDisplay(doZoom = false, updateMarkers = true) {
   const cityVal = input.value.toLowerCase().trim();
@@ -383,43 +480,11 @@ fetch("data/centers.json")
 
 
 input.addEventListener("focus", () => {
-
   suggestions.innerHTML = "";
-
-
-  // Boton pàra buscar centros cerca de mi en la barra de ciudades
-  // const li = document.createElement("li");
-  // li.textContent = "📍 Use my location (2 km)";
-  // li.style.padding = "5px";
-  // li.style.cursor = "pointer";
-  // li.style.fontStyle = "italic";
-  // li.addEventListener("click", () => {
-  //   suggestions.style.display = "none";
-  //   findNearbyBtn.click();
-  // });
-  // suggestions.appendChild(li);
-
-    // Inside both focus and input event handlers (after nearMe block)
-  const showAll = document.createElement("li");
-  showAll.textContent = "Todas las ciudades";
-  showAll.style.padding = "5px";
-  showAll.style.cursor = "pointer";
-  showAll.style.fontStyle = "italic";
-  showAll.addEventListener("click", () => {
-  usingNearby = false;
-  userLat = null;
-  userLng = null;
-  input.value = "";
+  // No mostramos nada al enfocar; se mostrará cuando el usuario escriba
   suggestions.style.display = "none";
-  findNearbyBtn.textContent = "Cerca de mí";
-  map.setView([40.0, -3.7], 6); // Reset to default view
-  updateDisplay(true, true);
-  });
-  suggestions.appendChild(showAll);
-
-  
-  suggestions.style.display = "block";
 });
+
 
 document.addEventListener("click", (e) => {
   if (!input.contains(e.target) && !suggestions.contains(e.target)) {
@@ -431,52 +496,15 @@ input.addEventListener("input", () => {
   const val = input.value.toLowerCase().trim();
   suggestions.innerHTML = "";
 
-// Boton pàra buscar centros cerca de mi en la barra de ciudades
-
-  // const nearMe = document.createElement("li");
-  // nearMe.textContent = "📍 Use my location (2 km)";
-  // nearMe.style.padding = "5px";
-  // nearMe.style.cursor = "pointer";
-  // nearMe.style.fontStyle = "italic";
-  // nearMe.addEventListener("click", () => {
-  //   suggestions.style.display = "none";
-  //   findNearbyBtn.click();
-  // });
-  // suggestions.appendChild(nearMe);
-
-
-
-
-  // Inside both focus and input event handlers (after nearMe block)
-  const showAll = document.createElement("li");
-  showAll.textContent = "Toas las ciudades";
-  showAll.style.padding = "5px";
-  showAll.style.cursor = "pointer";
-  showAll.style.fontStyle = "italic";
-  showAll.addEventListener("click", () => {
-  usingNearby = false;
-  userLat = null;
-  userLng = null;
-  input.value = "";
-  suggestions.style.display = "none";
-  findNearbyBtn.textContent = "Cerca de mí";
-  map.setView([40.0, -3.7], 6); // Reset to default view
-  updateDisplay(true, true);
-  });
-  suggestions.appendChild(showAll);
-
-
-
-
-
-
+  // Si no hay texto, ocultamos el menú
   if (val.length === 0) {
-    suggestions.style.display = "block";
+    suggestions.style.display = "none";
     return;
   }
 
   const allCities = [...new Set(centers.map(c => c.city))];
   const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
+
   if (matches.length > 0) {
     matches.forEach(city => {
       const li = document.createElement("li");
@@ -492,10 +520,11 @@ input.addEventListener("input", () => {
         suggestions.style.display = "none";
         updateDisplay(true, true);
       });
-
       suggestions.appendChild(li);
     });
     suggestions.style.display = "block";
+  } else {
+    suggestions.style.display = "none";
   }
 });
 

@@ -50,7 +50,7 @@ format:
 
   <p>
     Gracias por ayudarnos a mantener esta guía actualizada.<br>
-    Puedes sugerir un nuevo centro o profesor/a, o enviarnos comentarios, dudas o correcciones.
+    Puedes sugerir un nuevo centro o profesor/a, o enviarnos comentarios, dudas o correcciones. AÑADIR DESCRIPCION DEL CENTRO EN FORMULARIO
   </p>
 
   <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLScXrAjdVHfkB-50QpnDUGvp5FDrTORbgftis9ledNwKzz2lRQ/viewform?embedded=true" target="_blank">
