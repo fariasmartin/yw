@@ -17,17 +17,44 @@ OUTPUT_FILE = os.path.join(SCRIPT_DIR, "centers_with_google_maps_information.xls
 
 # === FIELDS TO KEEP ===
 KEEP_FIELDS = [
+    "address_components",
+    "adr_address",
     "business_status",
+    # "curbside_pickup",
+    # "delivery",
+    # "dine_in",
+    # "editorial_summary_overview",
     "formatted_address",
+    "formatted_phone_number",
+    "geometry_location_lat",
+    "geometry_location_lng",
+    "icon_mask_base_uri",
+    "icon_background_color",
     "international_phone_number",
     "name",
+    "opening_hours_weekday_text",
     "place_id",
-    "rating",
+    "plus_code_global_code",
+    "plus_code_compound_code",
+    # "price_level",
+    # "rating",
+    # "reservable",
+    # "reviews",
+    # "serves_beer",
+    # "serves_breakfast",
+    # "serves_brunch",
+    # "serves_dinner",
+    # "serves_lunch",
+    # "serves_vegetarian_food",
+    # "serves_wine",
+    # "takeout",
+    "types",
     "url",
-    "user_ratings_total",
+    # "user_ratings_total",
+    # "utc_offset_minutes",
+    # "vicinity",
     "website",
-    "geometry_location_lat",
-    "geometry_location_lng"
+    "wheelchair_accessible_entrance"
 ]
 
 # === LOAD PLACE IDS FROM EXCEL ===
@@ -35,15 +62,16 @@ df_ids = pd.read_excel(INPUT_EXCEL_PATH, sheet_name=SHEET_NAME)
 place_ids = df_ids[PLACE_ID_COLUMN].dropna().unique()
 
 # === API CALL FUNCTION ===
-def get_place_details(place_id):
+def get_place_details(place_id, lang="es"):
     url = "https://maps.googleapis.com/maps/api/place/details/json"
     params = {
         "place_id": place_id,
-        "key": API_KEY
+        "reviews_no_translations":"true",
+        "key": API_KEY,
+        "language": lang
     }
     response = requests.get(url, params=params)
     print("🔧 Debug:", response.status_code, response.url)
-    #print("🔧 Raw JSON:", response.json())  # <-- this shows error message if any
 
     if response.status_code != 200:
         print(f"⚠️ Failed request for {place_id}")

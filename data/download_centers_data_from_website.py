@@ -152,4 +152,33 @@ OUTPUT_EXCEL_PATH = os.path.join(SCRIPT_DIR, "centers_with_google_maps_and_websi
 final_df.to_excel(OUTPUT_EXCEL_PATH, index=False)
 print("✅ Saved to centers_with_google_maps_and_website_information.xlsx")
 
+# load the data
+INPUT_EXCEL_PATH2 = os.path.join(SCRIPT_DIR, "centers_with_google_maps_and_website_information.xlsx")
+final_df = pd.read_excel(INPUT_EXCEL_PATH2)  # Must contain a "website" column
+
+# final_df["city"] = 'Madrid'
+
+# Capitalize the first letter of each word in the "styles" column
+# if "styles" in final_df.columns:
+#     final_df["styles"] = final_df["styles"].apply(
+#         lambda x: ', '.join([word.capitalize() for word in x.split(', ')]) if pd.notna(x) else x
+#     )
+# # check 
+
+# final_df["styles"]
+
+# Delete " from names of centers
+final_df["name"] = final_df["name"].str.replace('"', '').str.strip()
+
+
+OUTPUT_JSON_PATH = os.path.join(SCRIPT_DIR, "centers_with_google_maps_and_website_information.json")
+
+final_df.to_json(
+    OUTPUT_JSON_PATH,
+    orient="records",   # array de objetos [{...}, {...}]
+    force_ascii=False,  # conserva acentos/ñ
+    indent=2            # legible
+)
+
+print(f"✅ Saved JSON to {OUTPUT_JSON_PATH}")
 

@@ -1,0 +1,163 @@
+---
+title: "Clínica Natal"
+---
+
+<link href="https://fonts.googleapis.com/css2?family=Savate&display=swap" rel="stylesheet">
+
+<style>
+  :root{ --burdeos:#800000; --gris-claro:#f7f5f5; --borde:#e6e6e6; }
+  body{ font-family:'Savate', sans-serif; }
+  .center-wrap{ max-width:1100px; margin:0 auto; padding:1rem 1.25rem; }
+  .cta-row{ display:flex; gap:.6rem; flex-wrap:wrap; margin:.4rem 0 1rem; }
+  .btn{ background:var(--burdeos); color:#fff; border:none; border-radius:10px; padding:.55rem .9rem; font-weight:700; text-decoration:none; display:inline-block; }
+  .btn.outline{ background:#fff; color:var(--burdeos); border:1px solid var(--burdeos); }
+  .btn:hover{ filter:brightness(.95); }
+  .grid{ display:grid; grid-template-columns: 1.25fr .75fr; gap:1.2rem; align-items:start; }
+  .card{ background:var(--gris-claro); border:1px solid var(--borde); border-radius:14px; padding:1rem 1.2rem; box-shadow:0 2px 6px rgba(0,0,0,.05); }
+  .section-title{ margin:.2rem 0 .6rem; font-size:1.1rem; }
+  .chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.4rem 0 .8rem; }
+  .chip{ background:#fff; border:1px solid var(--borde); border-radius:999px; padding:.25rem .65rem; font-size:.95rem; }
+  .meta-list{
+  list-style: none;      /* ← sin viñetas */
+  margin: 0;
+  padding-left: 0;       /* ← sin sangría */
+}
+  .prof-list a{ text-decoration:none; color:var(--burdeos); }
+  .prof-list a:hover{ text-decoration:underline; }
+  @media(max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+
+/* Botón tamaño pequeño (para la fila de CTAs) */
+.btn.small{
+  padding:.42rem .7rem;
+  font-size:.92rem;
+  border-radius:8px;
+}
+
+
+</style>
+
+<div id="centerInfo">Loading...</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const centerId = "ChIJDTzr5CMtQg0R1FtxvPtWa2I";
+  const container = document.getElementById("centerInfo");
+
+  // Detecta si estamos en /centers/ para ajustar las rutas
+  const BASE = location.pathname.includes('/centers/') ? '..' : '.';
+  const CENTERS_URL = `${BASE}/data/centers_with_google_maps_and_website_information.json`;
+  const PROFS_URL   = `${BASE}/data/professors.json`;
+
+  // Genera un enlace a Google Maps desde lat/lng o, si faltan, por nombre+ciudad
+  const gmapsLink = (c) => {
+    // 1) Si ya viene la URL de Google Maps en el JSON, úsala
+    if (c?.url) return c.url;
+
+    // 2) Si hay coordenadas, construye el enlace con lat/lng del JSON
+    const lat = Number(c?.geometry_location_lat);
+    const lng = Number(c?.geometry_location_lng);
+    if (Number.isFinite(lat) && Number.isFinite(lng)) {
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${lat},${lng}`)}`;
+    }
+
+    // 3) Último recurso: búsqueda por nombre + dirección
+    const q = [c?.name, c?.formatted_address].filter(Boolean).join(' ');
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+  };
+
+
+  try {
+    const [centersRes, profsRes] = await Promise.all([
+      fetch(CENTERS_URL),
+      fetch(PROFS_URL)
+    ]);
+
+
+
+    if (!centersRes.ok) {
+  throw new Error(`Fetch failed: centers(${centersRes.status})`);
+}
+const centers = await centersRes.json();
+// ⬇️ typo arreglado + fallback si falla professors.json
+const professors = (profsRes && profsRes.ok) ? await profsRes.json() : [];
+
+
+    const center = centers.find(c => c.place_id === centerId);
+
+
+    const stylesArr = Array.isArray(center.styles)
+      ? center.styles
+      : (typeof center.styles === 'string'
+          ? center.styles.split(',').map(s => s.trim()).filter(Boolean)
+          : []);
+
+
+    const mapsHref = gmapsLink(center);
+
+    if (!center) {
+      console.warn('[center page] Center not found. Available ids:', centers.map(c => c.place_id));
+      container.innerHTML = "<div class='center-wrap'><div class='card'><p>Center not found.</p></div></div>";
+      return;
+    }
+
+    const profData = (center.professors || [])
+      .map(pid => professors.find(p => p.id === pid))
+      .filter(Boolean);
+
+    container.innerHTML = `
+      <div class="center-wrap">
+
+
+        <div class="center-hero">
+        <div class="cta-row">
+          ${center.website ? `<a class="btn small" href="${center.website}" target="_blank" rel="noopener"> Visita el sitio web del centro </a>` : ``}
+          <a class="btn small" href="${mapsHref}" target="_blank" rel="noopener">Ver en Google Maps</a>
+        </div>
+        </div>
+
+
+
+        <div class="grid">
+          <div class="card">
+            <h3 class="section-title">Sobre ${center.name}</h3>
+            <p>${center.description ? center.description : `Bienvenido a la página de ${center.name} en ${center.city}.`}</p>
+
+            <h3 class="section-title">Estilos de yoga</h3>
+            <div class="chips">
+              ${stylesArr.map(s => `<span class="chip">${s}</span>`).join("")}
+            </div>
+
+            <h3 class="section-title">Idiomas</h3>
+            <div class="chips">
+              ${(center.languages || []).map(l => `<span class="chip">${l}</span>`).join("")}
+            </div>
+
+            <h3 class="section-title">Profesores</h3>
+            ${profData.length
+              ? `<ul class="meta-list prof-list">
+                   ${profData.map(p => {
+                     const slug = p.id.toLowerCase().replace(/\s+/g,'-');
+                     return `<li><a href="${BASE}/professors/${slug}.html">${p.name}</a></li>`;
+                   }).join("")}
+                 </ul>`
+              : `<p>—</p>`}
+          </div>
+
+          <div class="card">
+            <h3 class="section-title">Detalles</h3>
+            <ul class="meta-list">
+                ${center.formatted_address ? `<li>📍 ${center.formatted_address}</li>` : (center.city ? `<li>📍 ${center.city}</li>` : ``)}
+              ${center.international_phone_number ? `<li>📞 ${center.international_phone_number}</li>` : ``}
+              ${center.email ? `<li>✉️ <a href="mailto:${center.email}">${center.email}</a></li>` : ``}
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
+  } catch (err) {
+    console.error('[center page] Error:', err);
+    container.innerHTML = "<div class='center-wrap'><div class='card'><p>Error loading data.</p></div></div>";
+  }
+});
+</script>

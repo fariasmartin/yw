@@ -122,12 +122,6 @@ ul.task-list li input[type="checkbox"] {
   :root{ --burdeos:#800000; --gris-claro:#f7f5f5; --borde:#e6e6e6; }
   body{ font-family:'Savate', sans-serif; }
   .center-wrap{ max-width:1100px; margin:0 auto; padding:1rem 1.25rem; }
-  .center-hero h1{
-  margin: 0 0 .6rem 0;                 /* más aire debajo */
-  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
-  line-height: 1.2;
-}
-  .center-sub{ color:#555; margin:.2rem 0 1rem 0; }
   .cta-row{ display:flex; gap:.6rem; flex-wrap:wrap; margin:.4rem 0 1rem; }
   .btn{ background:var(--burdeos); color:#fff; border:none; border-radius:10px; padding:.55rem .9rem; font-weight:700; text-decoration:none; display:inline-block; }
   .btn.outline{ background:#fff; color:var(--burdeos); border:1px solid var(--burdeos); }
@@ -147,13 +141,14 @@ ul.task-list li input[type="checkbox"] {
   @media(max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
 
 
-  .crumbs{
-  font-size: .95rem;
-  color: #666;
-  margin: .25rem 0 1rem;
+/* Botón tamaño pequeño (para la fila de CTAs) */
+.btn.small{
+  padding:.42rem .7rem;
+  font-size:.92rem;
+  border-radius:8px;
 }
-.crumbs a{ color: inherit; text-decoration: none; }
-.crumbs a:hover{ text-decoration: underline; }
+
+
 </style>
 <div id="centerInfo">
 Loading…
@@ -168,9 +163,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   const CENTERS_URL = `${BASE}/data/centers.json`;
   const PROFS_URL   = `${BASE}/data/professors.json`;
 
-  console.log('[center page] path:', location.pathname);
-  console.log('[center page] base:', BASE);
-  console.log('[center page] centerId:', centerId);
+  // Genera un enlace a Google Maps desde lat/lng o, si faltan, por nombre+ciudad
+  const gmapsLink = (c) => {
+    if (c.google_maps) return c.google_maps;
+    if (Number.isFinite(c.lat) && Number.isFinite(c.lng)) {
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.lat + ',' + c.lng)}`;
+    }
+    const q = [c.name, c.city].filter(Boolean).join(' ');
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+  };
+
 
   try {
     const [centersRes, profsRes] = await Promise.all([
@@ -188,6 +190,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     ]);
 
     const center = centers.find(c => c.id === centerId);
+    const mapsHref = gmapsLink(center);
+
     if (!center) {
       console.warn('[center page] Center not found. Available ids:', centers.map(c => c.id));
       container.innerHTML = "<div class='center-wrap'><div class='card'><p>Center not found.</p></div></div>";
@@ -203,11 +207,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
         <div class="center-hero">
-          <div class="cta-row">
-            <a class="btn outline" href="${BASE}/map.html">← Volver al mapa</a>
-            ${center.website ? `<a class="btn" href="${center.website}" target="_blank" rel="noopener">Sitio web</a>` : ``}
-          </div>
+        <div class="cta-row">
+          ${center.url ? `<a class="btn small" href="${center.url}" target="_blank" rel="noopener"> Visita el sitio web del centro </a>` : ``}
+          <a class="btn small" href="${mapsHref}" target="_blank" rel="noopener">Ver en Google Maps</a>
         </div>
+        </div>
+
 
 
         <div class="grid">
@@ -239,11 +244,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           <div class="card">
             <h3 class="section-title">Detalles</h3>
             <ul class="meta-list">
-              <li>📍 ${center.city}</li>
-              ${center.address ? `<li>🏠 ${center.address}</li>` : ``}
-              ${center.phone ? `<li>📞 ${center.phone}</li>` : ``}
+                ${center.formatted_address ? `<li>📍 ${center.formatted_address}</li>` : (center.city ? `<li>📍 ${center.city}</li>` : ``)}
+              ${center.international_phone_number ? `<li>📞 ${center.international_phone_number}</li>` : ``}
               ${center.email ? `<li>✉️ <a href="mailto:${center.email}">${center.email}</a></li>` : ``}
-              ${center.website ? `<li>🌐 <a href="${center.website}" target="_blank" rel="noopener">${center.website.replace(/^https?:\/\//,'')}</a></li>` : ``}
             </ul>
           </div>
         </div>

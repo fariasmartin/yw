@@ -248,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 </style>
-<p>Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. Todo en un solo lugar.</p>
+<p>Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. ¡Todo en un solo lugar!</p>
 <div class="hero-search" style="position: relative;">
 <input type="text" id="citySearch" placeholder="Buscar centros en mi ciudad" autocomplete="off">
 <ul id="citySuggestions" class="suggestion-list">
@@ -297,7 +297,7 @@ Ver centros cercanos a tu ubicación
 Buscar clases en distintos idiomas
 </li>
 <li>
-Descubrir nuevas escuelas y profesores
+Descubrir nuevos centros y profesores
 </li>
 </ul>
 </section>
@@ -320,7 +320,7 @@ let centers = [];
 const input = document.getElementById("citySearch");
 const suggestions = document.getElementById("citySuggestions");
 
-fetch("/data/centers.json")
+fetch("/data/centers_with_google_maps_and_website_information.json")
   .then(res => res.json())
   .then(data => {
     centers = data;

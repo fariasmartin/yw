@@ -8,7 +8,7 @@ class CTemplate(Template):
     delimiter = '§'   # usamos § en vez de $
 
 # Load JSON data
-with open("data/centers.json", "r", encoding="utf-8") as f:
+with open("data/centers_with_google_maps_and_website_information.json", "r", encoding="utf-8") as f:
     centers = json.load(f)
 
 with open("data/professors.json", "r", encoding="utf-8") as f:
@@ -39,6 +39,6 @@ for professor in professors:
 
 # Generate center QMD files
 for center in centers:
-    filename = f"centers/{clean_filename(center['id'])}.qmd"
+    filename = f"centers/{clean_filename(center['place_id'])}.qmd"
     with open(filename, "w", encoding="utf-8") as f:
-        f.write(center_template.substitute(title=center["name"], id=center["id"]))
+        f.write(center_template.substitute(title=center["name"], id=center["place_id"]))

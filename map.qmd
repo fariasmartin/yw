@@ -1,5 +1,5 @@
 ---
-title: "Encuentra tu centro"
+title: "¡Encuentra tu centro de yoga!"
 page-layout: full
 format:
   html:
@@ -191,6 +191,18 @@ button.secondary:hover{
 #citySuggestions li:hover{ background: #f7f7f7; }
 
 
+.intro{
+  flex: 0 0 100%;      /* ocupa todo el ancho dentro de .layout */
+  padding: 0 1rem;
+  margin: .25rem 0 1rem;
+  color: #444;
+}
+.intro p{
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
 
 </style>
 
@@ -201,11 +213,13 @@ button.secondary:hover{
 ```{=html}
 <div class="layout">
 
-  <!-- <div style="margin-bottom: 1.5em;">
-    <p style="font-size: 1.1em; line-height: 1.6;">
-      Bienvenido al directorio de centros de yoga en España. Explora, filtra y descubre espacios cerca de ti donde practicar distintos estilos de yoga, aprender con profesores especializados y conectar con una comunidad que comparte tu interés por el bienestar físico y mental. Utiliza los filtros para buscar por ciudad, estilo, idioma o proximidad. ¡Tu próximo centro de yoga está más cerca de lo que crees!
-    </p>
-  </div> -->
+  <div class="intro">
+  <p>
+    Explora el directorio de centros de yoga en España. ¿No sabes por dónde empezar?
+    Prueba “Cerca de mí” para ver centros cercanos a ti, o escribe tu ciudad y
+    elige tus estilos o profesores favoritos.
+  </p>
+</div>
 
 
   <div class="sidebar">
@@ -252,7 +266,7 @@ button.secondary:hover{
 
 
     <div style="margin-bottom: 1em;">
-      <strong>Profesores</strong><br />
+      <strong>Profesores (próximamente)</strong><br />
       <select id="professorSelect" style="width: 100%; padding: 10px;">
         <option value="">Todos los profesores</option>
       </select>
@@ -344,18 +358,33 @@ window.addEventListener('resize', () => map.invalidateSize());
 
 function updateDisplay(doZoom = false, updateMarkers = true) {
   const cityVal = input.value.toLowerCase().trim();
-  const selectedStyles = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.value);
+  const selectedStyles = Array.from(checkboxes)
+  .filter(cb => cb.checked)
+  .map(cb => cb.value.trim().toLowerCase());
   const selectedLangs = Array.from(languageBoxes).filter(cb => cb.checked).map(cb => cb.value);
   const selectedProf = professorSelect.value;
 
   const filtered = centers.filter(c => {
     const matchCity = c.city.toLowerCase().includes(cityVal);
-    const matchStyle = selectedStyles.length === 0 || c.styles.some(style => selectedStyles.includes(style));
-    const matchLang = selectedLangs.length === 0 || c.languages.some(lang => selectedLangs.includes(lang));
-    const matchProf = !selectedProf || c.professors.includes(selectedProf);
+
+    const stylesArr = (Array.isArray(c.styles)
+      ? c.styles
+      : (typeof c.styles === 'string' ? c.styles.split(',') : []))
+      .map(s => String(s).trim().toLowerCase());
+    const langsArr  = Array.isArray(c.languages) ? c.languages : [];
+    const profsArr  = Array.isArray(c.professors) ? c.professors : [];
+
+
+
+
+    const matchStyle = selectedStyles.length === 0 || stylesArr.some(s => selectedStyles.includes(s));
+    const matchLang  = selectedLangs.length === 0 || langsArr.some(l => selectedLangs.includes(l));
+    const matchProf  = !selectedProf || profsArr.includes(selectedProf);
+
+
     const matchNearby = !usingNearby || (
       userLat !== null && userLng !== null &&
-      getDistance(userLat, userLng, c.lat, c.lng) <= 2
+      getDistance(userLat, userLng, c.geometry_location_lat, c.geometry_location_lng) <= 2
     );
     return matchNearby && matchCity && matchStyle && matchLang && matchProf;
   });
@@ -363,7 +392,9 @@ function updateDisplay(doZoom = false, updateMarkers = true) {
   listEl.innerHTML = "";
   filtered.forEach(c => {
     const li = document.createElement("li");
-    li.innerHTML = `<a href="${c.page}">${c.name} (${c.city})</a>`;
+    const pageHref = `centers/${encodeURIComponent(c.place_id)}.html`;
+    li.innerHTML = `<a href="${pageHref}" target="_blank" rel="noopener">${c.name} (${c.city})</a>`;
+
     listEl.appendChild(li);
   });
 
@@ -373,8 +404,10 @@ function updateDisplay(doZoom = false, updateMarkers = true) {
     markers.forEach(m => map.removeLayer(m));
     markers = [];
     filtered.forEach(c => {
-      const marker = L.marker([c.lat, c.lng]).addTo(map)
-        .bindPopup(`<a href="${c.page}">${c.name}</a><br>${c.city}`);
+      const pageHref = `centers/${encodeURIComponent(c.place_id)}.html`;
+      const marker = L.marker([c.geometry_location_lat, c.geometry_location_lng]).addTo(map)
+        .bindPopup(`<a href="${pageHref}" target="_blank" rel="noopener">${c.name}</a><br>${c.city}`);
+
       markers.push(marker);
     });
   }
@@ -382,8 +415,8 @@ function updateDisplay(doZoom = false, updateMarkers = true) {
   if (doZoom && cityVal) {
     const exactMatch = centers.filter(c => c.city.toLowerCase() === cityVal);
     if (exactMatch.length > 0) {
-      const avgLat = exactMatch.reduce((sum, c) => sum + c.lat, 0) / exactMatch.length;
-      const avgLng = exactMatch.reduce((sum, c) => sum + c.lng, 0) / exactMatch.length;
+      const avgLat = exactMatch.reduce((sum, c) => sum + c.geometry_location_lat, 0) / exactMatch.length;
+      const avgLng = exactMatch.reduce((sum, c) => sum + c.geometry_location_lng, 0) / exactMatch.length;
       map.setView([avgLat, avgLng], 12);
     }
   }
@@ -430,7 +463,7 @@ findNearbyBtn.addEventListener("click", () => {
 });
 
 
-fetch("data/centers.json")
+fetch("data/centers_with_google_maps_and_website_information.json")
   .then(res => res.json())
   .then(data => {
     centers = data;

@@ -2,9 +2,9 @@
   {
     "objectID": "map.html",
     "href": "map.html",
-    "title": "Encuentra tu centro",
+    "title": "¡Encuentra tu centro de yoga!",
     "section": "",
-    "text": "Limpiar filtros\n\n    Cerca de mí\n\n\n  \n    \n    \n  \n\n\n    \n      Estilos de yoga\n      \n    \n\n    \n    \n\n\n\n\n    \n      Profesores\n      \n        Todos los profesores\n      \n    \n\n    \n      Idiomas\n       Español\n       Inglés\n    \n\n    \n\n  \n\n  \n    \n    Centros de Yoga\n    \n    No centers found for your search."
+    "text": "Explora el directorio de centros de yoga en España. ¿No sabes por dónde empezar?\n    Prueba “Cerca de mí” para ver centros cercanos a ti, o escribe tu ciudad y\n    elige tus estilos o profesores favoritos.\n  \n\n\n\n  \n   \n\n    Limpiar filtros\n\n    Cerca de mí\n\n\n  \n    \n    \n  \n\n\n    \n      Estilos de yoga\n      \n    \n\n    \n    \n\n\n\n\n    \n      Profesores (próximamente)\n      \n        Todos los profesores\n      \n    \n\n    \n      Idiomas\n       Español\n       Inglés\n    \n\n    \n\n  \n\n  \n    \n    Centros de Yoga\n    \n    No centers found for your search."
   },
   {
     "objectID": "professors/victor-ortega.html",
@@ -291,7 +291,7 @@
     "href": "contacto.html",
     "title": "Centros de Yoga",
     "section": "",
-    "text": "Contáctanos\n\n\nGracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro o profesor/a, o enviarnos comentarios, dudas o correcciones. AÑADIR DESCRIPCION DEL CENTRO EN FORMULARIO\n\n ➕ Añadir o editar centros y profesores \n 💬 Envíanos tu mensaje por cualquier otra razón"
+    "text": "Contáctanos\n\n\nGracias por ayudarnos a mantener esta guía actualizada. Puedes sugerir un nuevo centro o profesor/a, o enviarnos comentarios, dudas o correcciones.\n\n ➕ Añadir o editar centros y profesores \n 💬 Envíanos tu mensaje por cualquier otra razón"
   },
   {
     "objectID": "generate_professors_and_centers_files/professor_template.html",
@@ -424,14 +424,14 @@
     "href": "index.html",
     "title": "Encuentra tu próximo centro de yoga",
     "section": "",
-    "text": "Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. Todo en un solo lugar."
+    "text": "Explora nuestro directorio de centros y profesores de yoga por ciudad, estilo, idioma y más. ¡Todo en un solo lugar!"
   },
   {
     "objectID": "index.html#qué-puedes-hacer",
     "href": "index.html#qué-puedes-hacer",
     "title": "Encuentra tu próximo centro de yoga",
     "section": "¿Qué puedes hacer?",
-    "text": "¿Qué puedes hacer?\n\n\nFiltrar por ciudad, estilo de yoga, idioma o profesor/a\n\n\nVer centros cercanos a tu ubicación\n\n\nBuscar clases en distintos idiomas\n\n\nDescubrir nuevas escuelas y profesores"
+    "text": "¿Qué puedes hacer?\n\n\nFiltrar por ciudad, estilo de yoga, idioma o profesor/a\n\n\nVer centros cercanos a tu ubicación\n\n\nBuscar clases en distintos idiomas\n\n\nDescubrir nuevos centros y profesores"
   },
   {
     "objectID": "index.html#colabora",
@@ -556,6 +556,76 @@
     "objectID": "professors/sofia-navarro.html#about-title",
     "href": "professors/sofia-navarro.html#about-title",
     "title": "Sofía Navarro",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijzwdjm0ymqg0r2ky3deyz3-c.html",
+    "href": "centers/chijzwdjm0ymqg0r2ky3deyz3-c.html",
+    "title": "MaterNatal",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijt1ug494nqg0rcseka8xgom0.html",
+    "href": "centers/chijt1ug494nqg0rcseka8xgom0.html",
+    "title": "YogaOne Legazpi",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijn7re_minqg0rvrzrokxofcy.html",
+    "href": "centers/chijn7re_minqg0rvrzrokxofcy.html",
+    "title": "Saum Yoga",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijf2pia0gmqg0r2ubfti1mazo.html",
+    "href": "centers/chijf2pia0gmqg0r2ubfti1mazo.html",
+    "title": "Madrid Yoga shala",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chij74jaflwpqg0rzlmbsplng_a.html",
+    "href": "centers/chij74jaflwpqg0rzlmbsplng_a.html",
+    "title": "Numen Yoga Estudio",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chij0_trzeenqg0rj-5r8toc584.html",
+    "href": "centers/chij0_trzeenqg0rj-5r8toc584.html",
+    "title": "Yoga Arganzuela - Anahata Academy",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijcxur4cmnqg0r6yb1xle-3m4.html",
+    "href": "centers/chijcxur4cmnqg0r6yb1xle-3m4.html",
+    "title": "Tao Lunar. Mónica Greco",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chiji3njvfenqg0rda2gzkftp7y.html",
+    "href": "centers/chiji3njvfenqg0rda2gzkftp7y.html",
+    "title": "Yoga con Daniel",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijqtxqenonqg0redx3om-qtja.html",
+    "href": "centers/chijqtxqenonqg0redx3om-qtja.html",
+    "title": "Be Art Yoga",
+    "section": "",
+    "text": "Loading…"
+  },
+  {
+    "objectID": "centers/chijubwkw40nqg0ra50pyanyg-o.html",
+    "href": "centers/chijubwkw40nqg0ra50pyanyg-o.html",
+    "title": "Sahaja Yoga Madrid",
     "section": "",
     "text": "Loading…"
   }
