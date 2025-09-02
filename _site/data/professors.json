@@ -1,0 +1,41 @@
+[
+ 
+  {
+    "id": "miguel-sanchez",
+    "name": "Miguel Sánchez",
+    "bio": "Passionate about promoting well-being through yoga.",
+    "center_ids": [
+      "alma-yoga",
+      "peace-yoga",
+      "ocean-zen"
+    ],
+    "languages": [
+      "Spanish"
+    ]
+    
+  },
+  {
+    "id": "sofia-navarro",
+    "name": "Sofía Navarro",
+    "bio": "Expert in traditional and modern yoga techniques.",
+    "center_ids": [
+      "balance-yoga"
+    ],
+    "languages": [
+      "Spanish"
+    ]
+  },
+  {
+    "id": "lucia-martin",
+    "name": "Lucía Martín",
+    "bio": "Expert in traditional and modern yoga techniques.",
+    "center_ids": [
+      "balance-yoga",
+      "yoga-norte",
+      "ocean-zen"
+    ],
+    "languages": [
+      "English"
+    ]
+  }
+]
