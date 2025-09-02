@@ -460,7 +460,8 @@ function updateDisplay(doZoom = false, updateMarkers = true) {
   const selectedProf = professorSelect.value;
 
   const filtered = centers.filter(c => {
-    const matchCity = c.city.toLowerCase().includes(cityVal);
+    const matchCity = !cityVal || (c.city && c.city.toLowerCase().includes(cityVal));
+
 
     const stylesArr = (Array.isArray(c.styles)
       ? c.styles
