@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Evolution Energy Retiro – Centros de Yoga</title>
+<title>Vive Pilates Madrid – Centros de Yoga</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Evolution Energy Retiro</h1>
+<h1 class="title">Vive Pilates Madrid</h1>
 </div>
 
 
@@ -199,6 +199,11 @@ const professors = (profsRes && profsRes.ok) ? await profsRes.json() : [];
 
     const center = centers.find(c => c.place_id === centerId);
 
+    if (!center) {
+      console.warn('[center page] Center not found. Available ids:', centers.map(c => c.place_id));
+      container.innerHTML = "<div class='center-wrap'><div class='card'><p>Center not found.</p></div></div>";
+      return;
+    }
 
     const stylesArr = Array.isArray(center.styles)
       ? center.styles
@@ -206,14 +211,8 @@ const professors = (profsRes && profsRes.ok) ? await profsRes.json() : [];
           ? center.styles.split(',').map(s => s.trim()).filter(Boolean)
           : []);
 
-
     const mapsHref = gmapsLink(center);
 
-    if (!center) {
-      console.warn('[center page] Center not found. Available ids:', centers.map(c => c.place_id));
-      container.innerHTML = "<div class='center-wrap'><div class='card'><p>Center not found.</p></div></div>";
-      return;
-    }
 
     const profData = (center.professors || [])
       .map(pid => professors.find(p => p.id === pid))

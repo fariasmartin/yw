@@ -199,6 +199,11 @@ const professors = (profsRes && profsRes.ok) ? await profsRes.json() : [];
 
     const center = centers.find(c => c.place_id === centerId);
 
+    if (!center) {
+      console.warn('[center page] Center not found. Available ids:', centers.map(c => c.place_id));
+      container.innerHTML = "<div class='center-wrap'><div class='card'><p>Center not found.</p></div></div>";
+      return;
+    }
 
     const stylesArr = Array.isArray(center.styles)
       ? center.styles
@@ -206,14 +211,8 @@ const professors = (profsRes && profsRes.ok) ? await profsRes.json() : [];
           ? center.styles.split(',').map(s => s.trim()).filter(Boolean)
           : []);
 
-
     const mapsHref = gmapsLink(center);
 
-    if (!center) {
-      console.warn('[center page] Center not found. Available ids:', centers.map(c => c.place_id));
-      container.innerHTML = "<div class='center-wrap'><div class='card'><p>Center not found.</p></div></div>";
-      return;
-    }
 
     const profData = (center.professors || [])
       .map(pid => professors.find(p => p.id === pid))
