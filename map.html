@@ -391,6 +391,17 @@ button.secondary:hover{
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script>
+
+
+const idToFile = (pid) =>
+  String(pid)
+    .toLowerCase()
+    .replace(/_/g, '-')           // underscores → hyphen
+    .replace(/[^a-z0-9-]+/g, '-') // anything else → hyphen
+    .replace(/^-+|-+$/g, '');     // trim hyphens
+
+
+
 let centers = [];
 let professors = [];
 let usingNearby = false;
@@ -488,13 +499,9 @@ function updateDisplay(doZoom = false, updateMarkers = true) {
   listEl.innerHTML = "";
   filtered.forEach(c => {
     const li = document.createElement("li");
-    const pidToSlug = pid =>
-  String(pid)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')   // non-alphanumerics → hyphen
-    .replace(/^-+|-+$/g, '');      // trim hyphens
 
-const pageHref = `centers/${encodeURIComponent(c.place_id)}.html`;
+
+const pageHref = `centers/${idToFile(c.place_id)}.html`;
 
     li.innerHTML = `<a href="${pageHref}" target="_blank" rel="noopener">${c.name} (${c.city})</a>`;
 
@@ -507,13 +514,9 @@ const pageHref = `centers/${encodeURIComponent(c.place_id)}.html`;
     markers.forEach(m => map.removeLayer(m));
     markers = [];
     filtered.forEach(c => {
-      const pidToSlug = pid =>
-  String(pid)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')   // non-alphanumerics → hyphen
-    .replace(/^-+|-+$/g, '');      // trim hyphens
 
-const pageHref = `centers/${encodeURIComponent(c.place_id)}.html`;
+
+const pageHref = `centers/${idToFile(c.place_id)}.html`;
 
       const marker = L.marker([c.geometry_location_lat, c.geometry_location_lng]).addTo(map)
         .bindPopup(`<a href="${pageHref}" target="_blank" rel="noopener">${c.name}</a><br>${c.city}`);
