@@ -255,35 +255,28 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </div>
 <div class="centered">
-<p><a href="./map.html" class="cta-button">Explora todas las ciudades</a></p>
+<p><a href="map.html" class="cta-button">Explora todas las ciudades</a></p>
 </div>
 <section id="ciudades-más-populares" class="level1">
 <h1>Ciudades más populares</h1>
 <div class="popular-cities-grid">
-  <div class="city-card" onclick="window.location.href='/map.html?city=Barcelona'">
+  <div class="city-card" onclick="window.location.href='map.html?city=Barcelona'">
     <img src="./images/cities/barcelona.jpg" alt="Barcelona">
     <div class="city-name">Barcelona</div>
   </div>
-  <div class="city-card" onclick="window.location.href='/map.html?city=Madrid'">
+  <div class="city-card" onclick="window.location.href='map.html?city=Madrid'">
     <img src="./images/cities/madrid.jpg" alt="Madrid">
     <div class="city-name">Madrid</div>
   </div>
-  <div class="city-card" onclick="window.location.href='/map.html?city=Valencia'">
+  <div class="city-card" onclick="window.location.href='map.html?city=Valencia'">
     <img src="./images/cities/valencia.jpg" alt="Valencia">
     <div class="city-name">Valencia</div>
   </div>
-  <div class="city-card" onclick="window.location.href='/map.html?city=Granada'">
+  <div class="city-card" onclick="window.location.href='map.html?city=Granada'">
     <img src="./images/cities/granada.jpg" alt="Granada">
     <div class="city-name">Granada</div>
   </div>
 </div>
-<!-- <div class="popular-cities">
-  <strong>Ciudades más buscadas:</strong><br>
-  <a href="/map.html?city=Barcelona">Barcelona</a>
-  <a href="/map.html?city=Madrid">Madrid</a>
-  <a href="/map.html?city=Valencia">Valencia</a>
-  <a href="/map.html?city=Granada">Granada</a>
-</div> -->
 <section id="qué-puedes-hacer" class="level2">
 <h2 class="anchored" data-anchor-id="qué-puedes-hacer">¿Qué puedes hacer?</h2>
 <ul class="features">
@@ -320,42 +313,71 @@ let centers = [];
 const input = document.getElementById("citySearch");
 const suggestions = document.getElementById("citySuggestions");
 
-fetch("/data/centers_with_google_maps_and_website_information.json")
+// derive city from multiple possible fields
+function getCity(c) {
+  if (c && c.city) return c.city;
+
+  // try Google address_components -> 'locality'
+  if (Array.isArray(c?.address_components)) {
+    const loc = c.address_components.find(a =>
+      Array.isArray(a.types) && a.types.includes("locality")
+    );
+    if (loc?.long_name) return loc.long_name;
+  }
+
+  // naive fallback from formatted_address (e.g., "... 28045 Madrid, Spain")
+  if (typeof c?.formatted_address === "string") {
+    const parts = c.formatted_address.split(",").map(s => s.trim());
+    // pick the part that looks like a city (not postal code, not country)
+    for (let i = parts.length - 1; i >= 0; i--) {
+      const p = parts[i];
+      if (/^\d{4,6}$/.test(p)) continue;       // postal code
+      if (/España|Spain/i.test(p)) continue;   // country
+      if (p.length >= 2) return p;             // take the first decent candidate
+    }
+  }
+  return "";
+}
+
+// use relative path so it works under /yw/
+fetch("data/centers_with_google_maps_and_website_information.json")
   .then(res => res.json())
   .then(data => {
     centers = data;
   });
 
+function buildCityList() {
+  const cities = [...new Set(
+    centers.map(getCity).filter(Boolean).map(c => c.trim())
+  )].sort((a, b) => a.localeCompare(b));
+  return cities;
+}
+
 input.addEventListener("input", () => {
   const val = input.value.toLowerCase().trim();
   suggestions.innerHTML = "";
 
-  if (val.length === 0) {
-    suggestions.style.display = "none";
-    return;
-  }
+  if (!val) { suggestions.style.display = "none"; return; }
 
-  const allCities = [...new Set(centers.map(c => c.city))];
+  const allCities = buildCityList();
   const matches = allCities.filter(c => c.toLowerCase().startsWith(val));
 
   matches.forEach(city => {
     const li = document.createElement("li");
     li.textContent = city;
     li.addEventListener("click", () => {
-      window.location.href = `/map.html?city=${encodeURIComponent(city)}`;
+      window.location.href = `map.html?city=${encodeURIComponent(city)}`;
     });
     suggestions.appendChild(li);
   });
 
-  suggestions.style.display = matches.length > 0 ? "block" : "none";
+  suggestions.style.display = matches.length ? "block" : "none";
 });
 
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     const val = input.value.trim();
-    if (val.length > 0) {
-      window.location.href = `/map.html?city=${encodeURIComponent(val)}`;
-    }
+    if (val) window.location.href = `map.html?city=${encodeURIComponent(val)}`;
   }
 });
 
